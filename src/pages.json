@@ -1,0 +1,936 @@
+{
+  "pages": [
+    {
+      "name": "首页",
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "enablePullDownRefresh": false
+      },
+      "meta": {
+        "noAuth": true
+      }
+    },
+    {
+      "name": "搜索",
+      "path": "pages/search/index",
+      "style": {
+        "navigationBarTitleText": "搜索",
+        "enablePullDownRefresh": false
+      },
+      "meta": {
+        "noAuth": true
+      }
+    },
+    {
+      "path": "pages/webview/webview",
+      "style": {
+        "navigationBarTitleText": "网址跳转"
+      },
+      "meta": {
+        "noAuth": true
+      }
+    },
+
+    {
+      "path": "pages/media/music",
+      "style": {
+        "navigationBarTitleText": "音乐",
+        "backgroundColor": "#000000"
+      }
+    },
+    {
+      "path": "pages/media/image",
+      "style": {
+        "navigationBarTitleText": "图片预览",
+        "backgroundColor": "#000000"
+      }
+    },
+    {
+      "path": "pages/media/video",
+      "style": {
+        "navigationBarTitleText": "视频",
+        "backgroundColor": "#000000"
+      }
+    },
+    {
+      "path": "pages/user/comment",
+      "style": {
+        "navigationBarTitleText": "我的评论"
+      }
+    },
+    {
+      "path": "pages/article/list",
+      "style": {
+        "navigationBarTitleText": "商城资讯"
+      }
+    },
+    {
+      "path": "pages/article/index",
+      "style": {
+        "navigationBarTitleText": "商城资讯"
+      },
+      "meta": {
+        "noAuth": true
+      }
+    },
+    {
+      "path": "pages/article/details",
+      "style": {
+        "navigationBarTitleText": "商城资讯详情"
+      }
+    },
+    {
+      "path": "pages/forum/index",
+      "style": {
+        "navigationBarTitleText": "交流论坛"
+      },
+      "meta": {
+        "noAuth": true
+      }
+    },
+    {
+      "path": "pages/cart/index",
+      "style": {
+        "navigationBarTitleText": "购物车"
+      }
+    },
+    {
+      "path": "pages/cart/list",
+      "style": {
+        "navigationBarTitleText": "购物车"
+      }
+    },
+    {
+      "path": "pages/pay/index",
+      "style": {
+        "navigationBarTitleText": "支付"
+      }
+    },
+      {
+      "path": "pages/logistics_delivery/table",
+      "style": {
+        "navigationBarTitleText": "订单配送列表"
+      }
+    },
+    {
+      "path": "pages/logistics_delivery/view",
+      "style": {
+        "navigationBarTitleText": "订单配送详情"
+      }
+    },
+    {
+      "path": "pages/user/address",
+      "style": {
+        "navigationBarTitleText": "收货地址"
+      }
+    },
+    {
+      "path": "pages/user/address_edit",
+      "style": {
+        "navigationBarTitleText": "收货地址管理"
+      }
+    },
+        {
+      "path": "pages/user/coupon",
+      "style": {
+        "navigationBarTitleText": "我的优惠券",
+        "enablePullDownRefresh": false
+      }
+    },
+      {
+      "path": "pages/user/wallet",
+      "style": {
+        "navigationBarTitleText": "我的钱包",
+        "enablePullDownRefresh": false
+      }
+    },
+      {
+      "path": "pages/notice/list",
+      "style": {
+        "navigationBarTitleText": "网站公告列表"
+      }
+    },
+    {
+      "path": "pages/notice/details",
+      "style": {
+        "navigationBarTitleText": "网站公告"
+      }
+    },
+    {
+      "path": "pages/webview/urlview13",
+      "style": {
+        "navigationBarTitleText": "天气预报"
+      }
+    },
+    {
+      "path": "pages/user/collect",
+      "style": {
+        "navigationBarTitleText": "我的收藏"
+      }
+    },
+    {
+      "path": "pages/score/edit",
+      "style": {
+        "navigationBarTitleText": "评分"
+      }
+    },
+    {
+      "path": "pages/user/my_home_page",
+      "style": {
+        "navigationBarTitleText": "用户主页"
+      }
+    },
+    {
+      "path": "pages/user/releasing_notices",
+      "style": {
+        "navigationBarTitleText": "发布通知"
+      }
+    },
+    {
+      "path": "pages/user/index",
+      "style": {
+        "navigationBarTitleText": "我的"
+      },
+      "meta": {
+        "noAuth": true
+      }
+    },
+    {
+      "path": "pages/user/password",
+      "style": {
+        "navigationBarTitleText": "修改密码"
+      }
+    },
+    {
+      "path": "pages/user/info",
+      "style": {
+        "navigationBarTitleText": "基本信息"
+      }
+    }
+  ],
+  "subPackages": [
+    {
+      "root": "pagesA",
+      "pages": [
+        {
+          "path": "forum/list",
+          "style": {
+            "navigationBarTitleText": "交流论坛列表"
+          }
+        },
+        {
+          "path": "forum/details",
+          "style": {
+            "navigationBarTitleText": "交流论坛详情"
+          }
+        },
+        {
+          "path": "forum/view",
+          "style": {
+            "navigationBarTitleText": "发布内容"
+          }
+        },
+        {
+          "path": "forum/table",
+          "style": {
+            "navigationBarTitleText": "交流论坛管理"
+          }
+        },
+        {
+          "path": "forum/edit",
+          "style": {
+            "navigationBarTitleText": "交流论坛详情"
+          }
+        },
+        {
+          "path": "forum/add",
+          "style": {
+            "navigationBarTitleText": "交流论坛添加"
+          }
+        },
+        {
+          "path": "goods/list",
+          "style": {
+            "navigationBarTitleText": "产品展示"
+          }
+        },
+        {
+          "path": "goods/details",
+          "style": {
+            "navigationBarTitleText": "产品详情"
+          }
+        },
+        {
+          "path": "order/list",
+          "style": {
+            "navigationBarTitleText": "我的订单"
+          }
+        },
+        {
+          "path": "order/details",
+          "style": {
+            "navigationBarTitleText": "订单详情"
+          }
+        },
+          {
+          "path": "goods/coupon",
+          "style": {
+            "navigationBarTitleText": "领取优惠券",
+            "enablePullDownRefresh": false
+          }
+        },
+          {
+          "path": "novel_chapters/table",
+          "style": {
+            "navigationBarTitleText": "章节列表"
+          }
+        },
+        {
+          "path": "novel_chapters/view",
+          "style": {
+            "navigationBarTitleText": "章节详情"
+          }
+        },
+        {
+          "path": "novel_chapters/read",
+          "style": {
+            "navigationBarTitleText": "章节阅读"
+          }
+        },
+		{
+		  "path": "movie_episode/table",
+		  "style": {
+		    "navigationBarTitleText": "视频列表"
+		  }
+		},
+		{
+		  "path": "movie_episode/view",
+		  "style": {
+		    "navigationBarTitleText": "视频详情"
+		  }
+		},
+		{
+		  "path": "movie_episode/play",
+		  "style": {
+		    "navigationBarTitleText": "影视播放"
+		  }
+		},
+        {
+          "path": "exam/list",
+          "style": {
+            "navigationBarTitleText": "知识问答列表"
+          }
+        },
+        {
+          "path": "exam/details",
+          "style": {
+            "navigationBarTitleText": "知识问答详情"
+          }
+        },
+        {
+          "path": "exam/log_table",
+          "style": {
+            "navigationBarTitleText": "答题记录"
+          }
+        },
+        {
+          "path": "exam/log_view",
+          "style": {
+            "navigationBarTitleText": "记录详情"
+          }
+        },
+		{
+		  "path": "evaluation/list",
+		  "style": {
+		    "navigationBarTitleText": "测评问卷列表"
+		  }
+		},
+		{
+		  "path": "evaluation/details",
+		  "style": {
+		    "navigationBarTitleText": "测评问卷详情"
+		  }
+		},
+        {
+          "path": "exam_subject/answer_wrong_table",
+          "style": {
+            "navigationBarTitleText": "错题列表"
+          }
+        },
+        {
+          "path": "exam_subject/answer_wrong_detail",
+          "style": {
+            "navigationBarTitleText": "错题详情"
+          }
+        },
+        {
+          "path": "exam_subject/list",
+          "style": {
+            "navigationBarTitleText": "考试列表"
+          }
+        },
+        {
+          "path": "exam_subject/details",
+          "style": {
+            "navigationBarTitleText": "考试详情"
+          }
+        },
+        {
+          "path": "exam_subject/log_table",
+          "style": {
+            "navigationBarTitleText": "答题记录"
+          }
+        },
+        {
+          "path": "exam_subject/log_view",
+          "style": {
+            "navigationBarTitleText": "记录详情"
+          }
+        },
+        {
+          "path": "history/list",
+          "style": {
+            "navigationBarTitleText": "浏览记录"
+          }
+        },
+        {
+          "path": "user_center/index",
+          "style": {
+            "navigationBarTitleText": "",
+            "enablePullDownRefresh": false
+          }
+        }
+      ]
+    },
+    {
+      "root": "pagesB",
+      "pages": [
+        {
+          "path": "message/list",
+          "style": {
+            "navigationBarTitleText": "在线留言列表"
+          }
+        },
+        {
+          "path": "message/edit",
+          "style": {
+            "navigationBarTitleText": "在线留言"
+          }
+        },
+        {
+          "path": "message/table",
+          "style": {
+            "navigationBarTitleText": "在线留言管理"
+          }
+        },
+        {
+          "path": "message/view",
+          "style": {
+            "navigationBarTitleText": "在线留言详情"
+          }
+        },
+        {
+          "path": "Intelligent-customer-service/Intelligent-customer-service",
+          "style": {
+            "navigationBarTitleText": "智能机器人",
+            "enablePullDownRefresh": false
+          }
+        },
+        {
+          "path": "chat/index",
+          "style": {
+            "navigationBarTitleText": "聊天列表",
+            "enablePullDownRefresh": false
+          }
+        },
+        {
+          "path": "chat/createGroup",
+          "style": {
+            "navigationBarTitleText": "创建群聊",
+            "enablePullDownRefresh": false
+          }
+        },
+        {
+          "path": "chat/session",
+          "style": {
+            "navigationBarTitleText": "",
+            "enablePullDownRefresh": false
+          }
+        },
+        {
+          "path": "comment/table",
+          "style": {
+            "navigationBarTitleText": "评论管理"
+          }
+        },
+        {
+          "path": "comment/edit",
+          "style": {
+            "navigationBarTitleText": "评论"
+          }
+        },
+        {
+          "path": "comment/view",
+          "style": {
+            "navigationBarTitleText": "查看评论"
+          }
+        },
+        {
+          "path": "account/register",
+          "style": {
+            "navigationBarTitleText": "注册"
+          },
+          "meta": {
+            "noAuth": true
+          }
+        },
+        {
+          "path": "authorization/authorization",
+          "style": {
+            "navigationBarTitleText": "QQ授权登录",
+            "enablePullDownRefresh": false
+          },
+          "meta": {
+            "noAuth": true
+          }
+        },
+        {
+          "path": "authorization/authorization-weixin",
+          "style": {
+            "navigationBarTitleText": "微信授权登录",
+            "enablePullDownRefresh": false
+          },
+          "meta": {
+            "noAuth": true
+          }
+        },
+        {
+          "path": "authorization/authorization-weibo",
+          "style": {
+            "navigationBarTitleText": "微博授权登录",
+            "enablePullDownRefresh": false
+          },
+          "meta": {
+            "noAuth": true
+          }
+        },
+		{
+		  "path": "schedule/view",
+		  "style": {
+		    "navigationBarTitleText": "日程管理",
+		    "enablePullDownRefresh": false
+		  },
+		  "meta": {
+		    "noAuth": true
+		  }
+		},
+        {
+          "name": "登录",
+          "path": "account/login",
+          "style": {
+            "navigationBarTitleText": "登录",
+            "enablePullDownRefresh": false
+          },
+          "meta": {
+            "noAuth": true
+          }
+        },
+        {
+          "path": "account/forgot",
+          "style": {
+            "navigationBarTitleText": "找回密码"
+          },
+          "meta": {
+            "noAuth": true
+          }
+        }
+      ]
+    },
+    {
+      "root": "pagesC",
+      "pages": [
+              {
+          "path": "map_navigation/map_navigation",
+          "style": {
+            "navigationBarTitleText": "地图导航"
+          }
+        },
+                                          // 生鲜商品列表路由
+        {
+          "path": "fresh_goods/list",
+          "style": {
+            "navigationBarTitleText": "生鲜商品列表"
+          }
+        },
+            // 生鲜商品详情路由
+        {
+          "path": "fresh_goods/details",
+          "style": {
+            "navigationBarTitleText": "生鲜商品"
+          }
+        },
+    		// 生鲜商品数据对比路由
+		{
+			"path" : "fresh_goods/vs_detail",
+			"style" :
+			{
+				"navigationBarTitleText" : "生鲜商品数据对比"
+			}
+		},
+                  // 分类信息列表路由
+        {
+          "path": "classification_information/list",
+          "style": {
+            "navigationBarTitleText": "分类信息列表"
+          }
+        },
+                      // 定制商品列表路由
+        {
+          "path": "customized_products/list",
+          "style": {
+            "navigationBarTitleText": "定制商品列表"
+          }
+        },
+            // 定制商品详情路由
+        {
+          "path": "customized_products/details",
+          "style": {
+            "navigationBarTitleText": "定制商品"
+          }
+        },
+      		// 定制商品地图标点
+		{
+			"path" : "customized_products/map",
+			"style" :
+			{
+				"navigationBarTitleText" : "定制商品地图"
+			}
+		},
+        {
+      "path": "customized_products/qrcodeDetails",
+      "style": {
+        "navigationBarTitleText": "customized_products二维码详情"
+      },
+      "meta": {
+        "noAuth": true
+      }
+    },
+            // 我要定制编辑路由
+        {
+          "path": "i_want_to_customize_it/edit",
+          "style": {
+            "navigationBarTitleText": "我要定制"
+          }
+        },
+            // 我要定制列表路由
+        {
+          "path": "i_want_to_customize_it/list",
+          "style": {
+            "navigationBarTitleText": "我要定制列表"
+          }
+        },
+                      // 评价反馈列表路由
+        {
+          "path": "evaluation_feedback/list",
+          "style": {
+            "navigationBarTitleText": "评价反馈列表"
+          }
+        },
+                      // 影视小说列表路由
+        {
+          "path": "film_and_television_novels/list",
+          "style": {
+            "navigationBarTitleText": "影视小说列表"
+          }
+        },
+            // 影视小说详情路由
+        {
+          "path": "film_and_television_novels/details",
+          "style": {
+            "navigationBarTitleText": "影视小说"
+          }
+        },
+    		// 影视小说数据对比路由
+		{
+			"path" : "film_and_television_novels/vs_detail",
+			"style" :
+			{
+				"navigationBarTitleText" : "影视小说数据对比"
+			}
+		},
+    		// 影视小说地图标点
+		{
+			"path" : "film_and_television_novels/map",
+			"style" :
+			{
+				"navigationBarTitleText" : "影视小说地图"
+			}
+		},
+                // 线下活动列表路由
+        {
+          "path": "offline_activities/list",
+          "style": {
+            "navigationBarTitleText": "线下活动列表"
+          }
+        },
+            // 线下活动详情路由
+        {
+          "path": "offline_activities/details",
+          "style": {
+            "navigationBarTitleText": "线下活动"
+          }
+        },
+      		// 线下活动地图标点
+		{
+			"path" : "offline_activities/map",
+			"style" :
+			{
+				"navigationBarTitleText" : "线下活动地图"
+			}
+		},
+                // 场次安排列表路由
+        {
+          "path": "schedule_of_sessions/list",
+          "style": {
+            "navigationBarTitleText": "场次安排列表"
+          }
+        },
+            // 场次安排详情路由
+        {
+          "path": "schedule_of_sessions/details",
+          "style": {
+            "navigationBarTitleText": "场次安排"
+          }
+        },
+                    // 座位安排列表路由
+        {
+          "path": "seating_arrangements/list",
+          "style": {
+            "navigationBarTitleText": "座位安排列表"
+          }
+        },
+            // 座位安排详情路由
+        {
+          "path": "seating_arrangements/details",
+          "style": {
+            "navigationBarTitleText": "座位安排"
+          }
+        },
+                  // 意见反馈编辑路由
+        {
+          "path": "feedback_on_opinions/edit",
+          "style": {
+            "navigationBarTitleText": "意见反馈"
+          }
+        },
+            // 意见反馈列表路由
+        {
+          "path": "feedback_on_opinions/list",
+          "style": {
+            "navigationBarTitleText": "意见反馈列表"
+          }
+        },
+                        // 注册用户列表路由
+        {
+            "path": "registered_user/table",
+            "style": {
+              "navigationBarTitleText": "注册用户列表"
+            }
+        },
+        // 注册用户编辑路由
+        {
+            "path": "registered_user/view",
+            "style": {
+              "navigationBarTitleText": "注册用户详情"
+            }
+        },
+                    // 商家用户列表路由
+        {
+            "path": "business_user/table",
+            "style": {
+              "navigationBarTitleText": "商家用户列表"
+            }
+        },
+        // 商家用户编辑路由
+        {
+            "path": "business_user/view",
+            "style": {
+              "navigationBarTitleText": "商家用户详情"
+            }
+        },
+                      // 分类信息列表路由
+        {
+            "path": "classification_information/table",
+            "style": {
+              "navigationBarTitleText": "分类信息列表"
+            }
+        },
+        // 分类信息编辑路由
+        {
+            "path": "classification_information/view",
+            "style": {
+              "navigationBarTitleText": "分类信息详情"
+            }
+        },
+                    // 定制商品列表路由
+        {
+            "path": "customized_products/table",
+            "style": {
+              "navigationBarTitleText": "定制商品列表"
+            }
+        },
+        // 定制商品编辑路由
+        {
+            "path": "customized_products/view",
+            "style": {
+              "navigationBarTitleText": "定制商品详情"
+            }
+        },
+                    // 我要定制列表路由
+        {
+            "path": "i_want_to_customize_it/table",
+            "style": {
+              "navigationBarTitleText": "我要定制列表"
+            }
+        },
+        // 我要定制编辑路由
+        {
+            "path": "i_want_to_customize_it/view",
+            "style": {
+              "navigationBarTitleText": "我要定制详情"
+            }
+        },
+                    // 评价反馈列表路由
+        {
+            "path": "evaluation_feedback/table",
+            "style": {
+              "navigationBarTitleText": "评价反馈列表"
+            }
+        },
+        // 评价反馈编辑路由
+        {
+            "path": "evaluation_feedback/view",
+            "style": {
+              "navigationBarTitleText": "评价反馈详情"
+            }
+        },
+                    // 影视小说列表路由
+        {
+            "path": "film_and_television_novels/table",
+            "style": {
+              "navigationBarTitleText": "影视小说列表"
+            }
+        },
+        // 影视小说编辑路由
+        {
+            "path": "film_and_television_novels/view",
+            "style": {
+              "navigationBarTitleText": "影视小说详情"
+            }
+        },
+                    // 线下活动列表路由
+        {
+            "path": "offline_activities/table",
+            "style": {
+              "navigationBarTitleText": "线下活动列表"
+            }
+        },
+        // 线下活动编辑路由
+        {
+            "path": "offline_activities/view",
+            "style": {
+              "navigationBarTitleText": "线下活动详情"
+            }
+        },
+                    // 场次安排列表路由
+        {
+            "path": "schedule_of_sessions/table",
+            "style": {
+              "navigationBarTitleText": "场次安排列表"
+            }
+        },
+        // 场次安排编辑路由
+        {
+            "path": "schedule_of_sessions/view",
+            "style": {
+              "navigationBarTitleText": "场次安排详情"
+            }
+        },
+                    // 座位安排列表路由
+        {
+            "path": "seating_arrangements/table",
+            "style": {
+              "navigationBarTitleText": "座位安排列表"
+            }
+        },
+        // 座位安排编辑路由
+        {
+            "path": "seating_arrangements/view",
+            "style": {
+              "navigationBarTitleText": "座位安排详情"
+            }
+        },
+                    // 意见反馈列表路由
+        {
+          "path": "feedback_on_opinions/table",
+          "style": {
+            "navigationBarTitleText": "意见反馈列表"
+          }
+        },
+        // 意见反馈编辑路由
+        {
+          "path": "feedback_on_opinions/view",
+          "style": {
+            "navigationBarTitleText": "意见反馈详情"
+          }
+        }
+            ]
+    }
+  ],
+  "globalStyle": {
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uniapp-ma-template",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#F8F8F8",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#3388FF",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": ""
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": ""
+      },
+      {
+        "pagePath": "pages/forum/index",
+        "text": ""
+      },
+      {
+        "pagePath": "pages/article/index",
+        "text": ""
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": ""
+      }
+    ]
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "tui-(.*)": "@/components/thorui/tui-$1/tui-$1.vue",
+      "^tn-(.*)": "@/tuniao-ui/components/tn-$1/tn-$1.vue",
+      "^c-(.*)": "@/custom-ui/c-$1/c-$1.vue",
+      "^u-(.*)": "@dcloudio/uniui/lib/u-$1/u-$1.vue"
+    }
+  }
+}
