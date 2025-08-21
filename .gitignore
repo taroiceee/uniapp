@@ -1,4 +1,7 @@
 .DS_Store
+node_modules
+node_modules（原版）
+node_modules（原版）/
 node_modules/
 unpackage/
 dist/

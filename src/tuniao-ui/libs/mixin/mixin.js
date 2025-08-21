@@ -1,19 +1,19 @@
-module.exports = {
+﻿export default {
   data() {
     return {}
   },
   onLoad() {
-    // getRect挂载再$t上，用为这个方法需要使用in（this），所以无法把它独立层一个单独的文件导出
+    // getRect鎸傝浇鍐?t涓婏紝鐢ㄤ负杩欎釜鏂规硶闇€瑕佷娇鐢╥n锛坱his锛夛紝鎵€浠ユ棤娉曟妸瀹冪嫭绔嬪眰涓€涓崟鐙殑鏂囦欢瀵煎嚭
     this.$tn.getRect = this._tGetRect
   },
   beforeDestory() {
-    // 判断当前页面是否存在parent和children
-    // 组件销毁时，移除子组件在父组件children数组中的实例，释放资源，避免数据混乱
+    // 鍒ゆ柇褰撳墠椤甸潰鏄惁瀛樺湪parent鍜宑hildren
+    // 缁勪欢閿€姣佹椂锛岀Щ闄ゅ瓙缁勪欢鍦ㄧ埗缁勪欢children鏁扮粍涓殑瀹炰緥锛岄噴鏀捐祫婧愶紝閬垮厤鏁版嵁娣蜂贡
     if (this.parent && uni.$tn.test.array(this.parent.children)) {
-      // 组件销毁时，移除子组件在父组件children数组中的实例
+      // 缁勪欢閿€姣佹椂锛岀Щ闄ゅ瓙缁勪欢鍦ㄧ埗缁勪欢children鏁扮粍涓殑瀹炰緥
       const childrenList = this.parent.children
       childrenList.map((child, index) => {
-        // 如果相对，则移除
+        // 濡傛灉鐩稿锛屽垯绉婚櫎
         if (child === this) {
           childrenList.splice(index, 1)
         }
@@ -22,9 +22,9 @@ module.exports = {
   },
   methods: {
     /**
-     * 查询节点信息
-     * 当前方法在支付宝小程序中无法获取组件跟接点的尺寸
-     * 解决办法：为组件根部再套一个没有任何作用的view元素
+     * 鏌ヨ鑺傜偣淇℃伅
+     * 褰撳墠鏂规硶鍦ㄦ敮浠樺疂灏忕▼搴忎腑鏃犳硶鑾峰彇缁勪欢璺熸帴鐐圭殑灏哄
+     * 瑙ｅ喅鍔炴硶锛氫负缁勪欢鏍归儴鍐嶅涓€涓病鏈変换浣曚綔鐢ㄧ殑view鍏冪礌
      */
     _tGetRect(selector, all) {
       return new Promise((resolve) => {
@@ -42,24 +42,24 @@ module.exports = {
       })
     },
     /**
-     * 获取父组件的数据
+     * 鑾峰彇鐖剁粍浠剁殑鏁版嵁
      */
     getParentData(parentName = '') {
-      // 避免再created中定义parent变量
+      // 閬垮厤鍐峜reated涓畾涔塸arent鍙橀噺
       if (!this.parent) this.parent = false
-      // 通过获取父组件实例
-      // 将父组件this中对应的参数，赋值给本组件的parentData对象中对应的属性
-      // 头条小程序不支持通过this.parent.xxx去监听父组件参数的变化，所以需要本方法进行实现
+      // 閫氳繃鑾峰彇鐖剁粍浠跺疄渚?
+      // 灏嗙埗缁勪欢this涓搴旂殑鍙傛暟锛岃祴鍊肩粰鏈粍浠剁殑parentData瀵硅薄涓搴旂殑灞炴€?
+      // 澶存潯灏忕▼搴忎笉鏀寔閫氳繃this.parent.xxx鍘荤洃鍚埗缁勪欢鍙傛暟鐨勫彉鍖栵紝鎵€浠ラ渶瑕佹湰鏂规硶杩涜瀹炵幇
       this.parent = this.$tn.$parent.call(this, parentName)
       if (this.parent) {
-        // 遍历parentData中的属性，将parent中同名的属性赋值给parentData
+        // 閬嶅巻parentData涓殑灞炴€э紝灏唒arent涓悓鍚嶇殑灞炴€ц祴鍊肩粰parentData
         Object.keys(this.parentData).map(key => {
           this.parentData[key] = this.parent[key]
         })
       }
     },
     /**
-     * 阻止事件冒泡
+     * 闃绘浜嬩欢鍐掓场
      */
     preventEvent(e) {
       e && e.stopPropagation && e.stopPropagation()

@@ -13,6 +13,7 @@ page {
 	--bg-black:#272727;
 	--bg-purple:#AFBAFF;
 	--bg-gray:#f6f6f6;
+	--bg-white:#fff;
 
 	--border-form:2px solid #AFBAFF;
 	--border-form-item:1px solid #C4C4C4;
@@ -673,12 +674,16 @@ page {
 	position: relative;
 	z-index: 99;
 }
+.page_home .tab-pane .search-wrapper {
+	background-color: var(--bg-black);
+}
 #home .scroll-x{
 	display: none;
 }
 #home .swiper{
 	padding: 0 8px;
 	height: 178px;
+	background-color: var(--bg-white);
 }
 #home .slide-swiper-wrapper .swiper image{
 	border-radius: 15px;

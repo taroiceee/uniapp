@@ -1,6 +1,6 @@
 const log = uni.getRealtimeLogManager ? uni.getRealtimeLogManager() : null;
 
-module.exports = {
+export default {
   debug() {
     if (!log) return;
     log.debug.apply(log, arguments);

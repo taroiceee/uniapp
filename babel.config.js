@@ -15,17 +15,14 @@ if (
   )
 ) {
   const path = require('path')
-
   const isWin = /^win/.test(process.platform)
-
-  const normalizePath = path => (isWin ? path.replace(/\\/g, '/') : path)
-
+  const normalizePath = p => (isWin ? p.replace(/\\/g, '/') : p)
   const input = normalizePath(process.env.UNI_INPUT_DIR)
   try {
     plugins.push([
       require('@dcloudio/vue-cli-plugin-hbuilderx/packages/babel-plugin-console'),
       {
-        file (file) {
+        file(file) {
           file = normalizePath(file)
           if (file.indexOf(input) === 0) {
             return path.relative(input, file)
@@ -34,7 +31,7 @@ if (
         }
       }
     ])
-  } catch (e) {}
+  } catch (e) { }
 }
 
 process.UNI_LIBRARIES = process.UNI_LIBRARIES || ['@dcloudio/uni-ui']
@@ -42,20 +39,22 @@ process.UNI_LIBRARIES.forEach(libraryName => {
   plugins.push([
     'import',
     {
-      'libraryName': libraryName,
-      'customName': (name) => {
-        return `${libraryName}/lib/${name}/${name}`
-      }
+      libraryName,
+      customName: (name) => `${libraryName}/lib/${name}/${name}`
     }
   ])
 })
+
 module.exports = {
   presets: [
     [
       '@vue/app',
       {
-        modules: 'commonjs',
-        useBuiltIns: process.env.UNI_PLATFORM === 'h5' ? 'usage' : 'entry'
+        // 关键点1：不要把 ESModule 转成 CommonJS，避免浏览器端出现 require 未定义/运行时冲突
+        modules: false,
+        // 关键点2：按需注入 polyfill（由 Babel 自动插入 core-js 片段）
+        useBuiltIns: 'usage',
+        corejs: 3
       }
     ]
   ],

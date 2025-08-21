@@ -1,22 +1,22 @@
-module.exports = {
+﻿export default {
   data() {},
   props: {
-    // 背景颜色
+    // 鑳屾櫙棰滆壊
     backgroundColor: {
       type: String,
       default: '',
     },
-    // 字体颜色
+    // 瀛椾綋棰滆壊
     fontColor: {
       type: String,
       default: '',
     },
-    // 字体大小
+    // 瀛椾綋澶у皬
     fontSize: {
       type: Number,
       default: 0,
     },
-    // 字体大小单位
+    // 瀛椾綋澶у皬鍗曚綅
     fontUnit: {
       type: String,
       default: 'rpx',
@@ -41,3 +41,4 @@ module.exports = {
   },
   methods: {},
 };
+

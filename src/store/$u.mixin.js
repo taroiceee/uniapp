@@ -5,8 +5,8 @@ import store from '@/store';
 let $tStoreKey = [];
 try {
   $tStoreKey = store.state ? Object.keys(store.state.app) : [];
-} catch (e) {}
-module.exports = {
+} catch (e) { }
+export default {
   beforeCreate() {
     // 将vuex方法挂在在$t中
     // 使用方法:
