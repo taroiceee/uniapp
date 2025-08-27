@@ -2121,8 +2121,10 @@ uni-textarea {
 	// width: 100%
 }
 
+//交流论坛列表/在线留言列表
 #page_forum .page_forum .forum-hot .forum-hot-item,
-#page_forum .list_forum .item {
+#page_forum .list_forum .item,
+#message_list .message_wrapper .list-warp .list-message .item-message .message-box {
 	width: 90% !important;
 	height: auto !important;
 	border-radius: 0px !important;
@@ -3587,6 +3589,10 @@ uni-textarea {
 }
 
 // 留言
+#i_want_to_customize_edit {
+	height: calc(100vh - 45px - 5px);
+}
+
 #message_list .btn-release {
 	width: 94%;
 	margin: 15px 3%;
@@ -3599,15 +3605,55 @@ uni-textarea {
 
 .message_edit .message_edit_wrapper .cell {
 	flex-flow: column;
+	background-color: var(--bg-trans-less);
 }
+
+.message_edit .message_edit_wrapper .cell:nth-child(1) {
+	border-top: var(--border-form) !important;
+	border-left: var(--border-form) !important;
+	border-right: var(--border-form) !important;
+	border-bottom: none !important;
+	padding: 20px !important;
+}
+
+.message_edit .message_edit_wrapper .cell:nth-child(2) {
+	border-top: none !important;
+	border-left: var(--border-form) !important;
+	border-right: var(--border-form) !important;
+	border-bottom: none !important;
+	padding: 20px !important;
+
+}
+
+.message_edit .message_edit_wrapper .cell:nth-child(3) {
+	border-top: none !important;
+	border-bottom: var(--border-form) !important;
+	border-left: var(--border-form) !important;
+	border-right: var(--border-form) !important;
+	padding: 20px !important;
+
+}
+
+
 
 .message_edit .message_edit_wrapper .cell .value {
 	text-align: left !important;
 	margin-top: 20rpx;
+	background-color: #fff;
+	padding: 5px;
 }
 
 .message_edit .message_edit_wrapper .cell .value .textarea {
 	width: 100% !important;
+}
+
+.message_edit .message_edit_wrapper .cell .value .textarea {
+	height: 450px !important;
+}
+
+.message_edit .message_edit_wrapper .cell .value .textarea,
+.message_edit .cell .uni-textarea-textarea {
+	border: none !important;
 }
 
 #message_edit .cell .uni-textarea-textarea,
@@ -3620,20 +3666,30 @@ uni-textarea {
 	font-size: 13px !important;
 }
 
+//在线留言列表
+.message_list .message_wrapper {
+	height: calc(100vh - 45px - 5px) !important;
+
+}
+
 #message_list .message_wrapper .list-warp .list-message {
+	gap: 20px;
 	padding: 0;
-	width: 94%;
-	margin: 0 auto;
+	margin: 30px auto 0 auto;
 }
 
 #message_list .message_wrapper .list-warp .list-message .item-message {
 	position: relative;
+	padding: 0 !important;
+	margin: 0 !important;
+	border: none !important;
 }
 
 #message_list .message_wrapper .list-warp .list-message .item-message .title {
 	font-size: 15px;
 	font-weight: bold;
 	color: #544241;
+	width: auto !important;
 }
 
 #message_list .message_wrapper .list-warp .list-message .item-message .message-box .user-info view:first-child {
@@ -3641,9 +3697,6 @@ uni-textarea {
 }
 
 #message_list .message_wrapper .list-warp .list-message .item-message .message-box .user-info .time {
-	position: absolute;
-	right: 10px;
-	top: 10px;
 	font-size: 12px;
 	color: #bdb9b9;
 }
