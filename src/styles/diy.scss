@@ -64,8 +64,11 @@ uni-button,
 	border: none !important;
 	border-radius: var(--border-radius-btn) !important;
 	letter-spacing: var(--letter-spacing-btn);
-	line-height: var(--line-height-btn);
+	line-height: unset !important;
 	height: var(--height-btn);
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
 
 }
 
@@ -1624,13 +1627,18 @@ uni-textarea {
 	#page_forum .scroll-tabs .scroll-view .category-item.active,
 	#page_article .scroll-tabs .scroll-view .category-item.active,
 	#page_article .page_article .filter-wrapper .filter-item.active,
-	#page_forum .page_forum .filter-wrapper .filter-item.active)::before {
+	#page_forum .page_forum .filter-wrapper .filter-item.active,
+	#page_goods_list .goods-wrapper .left-aside .f-item.active)::before {
 	content: '▶';
 	color: var(--bg-purple);
 	margin-right: 10px;
 	display: inline-block;
 	transform-origin: center;
 	animation: xrolling 1.2s linear infinite;
+	background-color: transparent !important;
+	position: relative !important;
+	top: unset !important;
+	left: unset !important;
 }
 
 @keyframes xrolling {
@@ -2294,7 +2302,7 @@ uni-textarea {
 }
 
 #page_article_details .list_article .item {
-	background-color: var(--bg-purple) !important;
+	background-color: var(--bg-purple-2) !important;
 	border-radius: 30px !important;
 	border: none !important;
 	flex-direction: column !important;
@@ -3284,13 +3292,20 @@ uni-textarea {
 }
 
 // 商品列表
+#page_goods_list {
+	background-color: transparent !important;
+}
+
 #page_goods_list .goods-wrapper {
-	flex-flow: row-reverse;
+	flex-direction: column;
 }
 
 #page_goods_list .guess-item {
 	// flex-flow: column-reverse;
 	background-color: #fff;
+	border-radius: 30px;
+	margin: 0 !important;
+	width: 45%;
 }
 
 #page_goods_list .guess-item:nth-child(2n) .image-wrapper {
@@ -3302,20 +3317,67 @@ uni-textarea {
 	line-height: 16px;
 }
 
+#page_goods_list .search-wrapper {
+	background-color: transparent !important;
+
+}
+
 #page_goods_list .search-wrapper .left {
 	height: 30px;
 }
 
+#page_goods_list .goods-wrapper {
+	background-color: transparent !important;
+}
+
+#page_goods_list .goods-wrapper .left-aside {
+	width: 100% !important;
+	height: auto !important;
+	background-color: transparent !important;
+
+}
+
+#page_goods_list .goods-wrapper .left-aside .uni-scroll-view-content {
+	display: flex;
+}
+
 #page_goods_list .goods-wrapper .left-aside .f-item.active {
 	color: var(--bg-purple);
+	background-color: transparent !important;
 }
 
-#page_goods_list .goods-wrapper .left-aside .f-item.active::before {
-	background-color: var(--bg-purple);
-}
 
 #page_goods_list .goods-wrapper .left-aside .f-item {
-	font-size: 12px;
+	color: #fff;
+	padding: 3px 15px;
+	font-size: var(--font-size-title-small);
+	font-weight: var(--font-weight-title-small);
+	margin-bottom: 8px;
+	margin-right: 10px;
+	justify-content: space-around !important;
+	border: none !important;
+}
+
+#page_goods_list .goods-wrapper .right-aside {
+	padding: 0 !important;
+	background-color: transparent !important;
+
+}
+
+#page_goods_list .goods-wrapper .right-aside .goods-list {
+	background-color: transparent !important;
+}
+
+#page_goods_list .goods-wrapper .right-aside .goods-list .guess-section {
+	padding: 50px 20px !important;
+	border-radius: 50px 50px 0 0;
+	background-color: var(--bg-trans-less);
+	gap: 20px;
+	justify-content: space-around;
+}
+
+#page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .image-wrapper {
+	border-radius: 30px 30px 0 0;
 }
 
 #page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .title {
@@ -3323,11 +3385,14 @@ uni-textarea {
 	color: #544241;
 	font-weight: bold;
 	margin-top: 5px;
+	padding: 0 10px;
 }
 
 #page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .title2 {
 	color: #bdb9b9;
 	font-size: 12px;
+	padding: 0 10px;
+
 }
 
 #page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .price-wrapper {
@@ -3335,6 +3400,8 @@ uni-textarea {
 	align-items: flex-start;
 	margin-top: 10px;
 	position: relative;
+	padding: 0 10px;
+
 }
 
 #page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .price-wrapper .price {
@@ -3344,6 +3411,11 @@ uni-textarea {
 
 #page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .price-wrapper .price_ago {
 	font-size: 11px;
+}
+
+#page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .item-row {
+
+	padding: 0 10px;
 }
 
 #page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .operation {
@@ -3359,18 +3431,72 @@ uni-textarea {
 }
 
 #page_goods_list .goods-wrapper .right-aside .goods-list .medicine-title {
-	color: #bdb9b9;
+	color: var(--color-text);
 	font-size: 12px;
+	background-color: var(--bg-trans-less) !important;
 }
 
 .page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .info {
-	position: absolute;
-	width: 100%;
-	top: 0;
-	left: 0;
-	background-color: rgba(0, 0, 0, 0.5);
+	width: 80%;
+	display: inline-block;
+	padding: 0 10px;
+	justify-content: flex-start;
+}
+
+#page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .operation uni-image {
+	box-shadow: none !important;
+}
+
+// 对比
+.checkbox-container {
+	border: none !important;
+	background-color: var(--bg-purple) !important;
 	color: #fff !important;
+	font-size: var(--font-size-text) !important;
+	width: 40% !important;
+	top: 15px !important;
+	right: 15px !important;
+}
+
+.checkbox-container .uni-label-pointer {
+	display: flex;
 	justify-content: center;
+	align-items: center;
+}
+
+.checkbox-container .uni-checkbox {
+	width: 15px !important;
+	height: 15px !important;
+}
+
+// 数据对比
+.fixed-button {
+	width: 50px !important;
+	height: auto !important;
+	left: unset !important;
+	right: 0px !important;
+	bottom: 10px !important;
+	writing-mode: vertical-lr !important;
+	padding: 5px !important;
+	text-align: center;
+}
+
+.fixed-button::after {
+	display: none !important;
+}
+
+.drawer-open {
+	background-color: #fff;
+}
+
+// .drawer-open:not(:has(.footer)) uni-button:first-child {
+// 	background-color: transparent !important;
+// 	font-size: var(--font-size-title-small);
+// 	color: var(--bg-purple);
+// 	font-weight: var(--font-weight-title-big);
+// }
+.drawer-open uni-button:after {
+	display: none;
 }
 
 // 商品详情
@@ -3723,6 +3849,11 @@ uni-textarea {
 }
 
 // 答题
+#exam_list .page_exam_subject_list {
+	height: calc(100vh - 45px - 5px) !important;
+
+}
+
 #exam_list .exam-category {
 	padding: 0 15px;
 	font-size: 13px;
