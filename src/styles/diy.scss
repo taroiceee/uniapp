@@ -17,6 +17,7 @@ page {
 	--bg-gray: #f6f6f6;
 	--bg-white: #fff;
 	--bg-trans: #ffffff24;
+	--bg-trans-less: #ffffff80;
 
 	--border-form: 2px solid #afbaff;
 	--border-form-item: 1px solid #afbaff;
@@ -68,6 +69,10 @@ uni-button,
 
 }
 
+.me-btn {
+	margin-top: 0 !important;
+}
+
 .page-custom .custom-from .custom-from-item .content {
 	flex-wrap: wrap;
 }
@@ -90,6 +95,12 @@ uni-button,
 	border: none !important;
 	border-radius: 0 !important;
 	padding: 0 !important;
+}
+
+//图标
+.icon-praise--active,
+.icon-collect--active {
+	color: var(--bg-purple) !important
 }
 
 .uni-easyinput__content,
@@ -379,7 +390,7 @@ uni-textarea {
 .comment_edit .comment-wrapper .comment_auth {
 	padding-left: 0 !important;
 	font-size: 13px;
-	color: #bdb9b9;
+	color: #fff;
 }
 
 .comment_edit .uni-easyinput {
@@ -388,7 +399,7 @@ uni-textarea {
 
 .comment_edit .uni-easyinput .uni-easyinput__content {
 	height: 100% !important;
-	background-color: #ffffff80 !important;
+	background-color: var(--bg-trans-less) !important;
 	border: var(--border-form) !important;
 	border-radius: var(--border-radius-form-item);
 	padding: 30px 10px;
@@ -446,10 +457,16 @@ uni-textarea {
 	right: 10px;
 }
 
-.list_comment .item_comment .comment_box .right_block .content,
+.list_comment .item_comment .comment_box .right_block .content {
+	font-size: 12px !important;
+	color: #fff;
+	line-height: 2;
+}
+
 .list_comment .list_reply_block .content {
 	font-size: 12px !important;
-	color: #bdb9b9;
+	color: var(--color-title);
+	line-height: 2;
 }
 
 .list_comment .item_comment .comment_box .right_block .time,
@@ -461,18 +478,11 @@ uni-textarea {
 }
 
 .list_comment .list_reply_block {
-	background: #f6fafd;
+	background: var(--bg-trans-less);
+	border: var(--border-form);
 	margin-left: 62px !important;
 	padding: 10px;
 	position: relative;
-}
-
-.list_comment .list_reply_block::before {
-	content: '▲';
-	color: #f6fafd;
-	position: absolute;
-	top: -13px;
-	right: 20px;
 }
 
 .list_comment .item_comment:last-child .line {
@@ -2066,7 +2076,8 @@ uni-textarea {
 }
 
 #page_forum .forum-hot .forum-hot-title,
-#page_article_details .uni-card__header .uni-card__header-content-title {
+#page_article_details .uni-card__header .uni-card__header-content-title,
+#page_forum_details .comment-list .tn-list-view__title {
 	font-size: var(--font-size-title-small);
 	font-weight: var(--font-weight-title-small);
 	color: #fff;
@@ -2080,8 +2091,9 @@ uni-textarea {
 	margin-bottom: 30px;
 }
 
-#page_forum .forum-hot .forum-hot-title::after,
-#page_article_details .uni-card__header .uni-card__header-content-title::after {
+:is(#page_forum .forum-hot .forum-hot-title,
+	#page_article_details .uni-card__header .uni-card__header-content-title,
+	#page_forum_details .comment-list .tn-list-view__title)::after {
 	content: '';
 	display: block;
 	width: 80px;
@@ -2297,8 +2309,9 @@ uni-textarea {
 	color: var(--color-text);
 }
 
-// 评论
-#page_article_details>uni-view:nth-child(4) {
+// 资讯详情评论/交流论坛详情评论
+#page_article_details>uni-view:nth-child(4),
+#page_forum_details .comment-list {
 	order: 3 !important;
 	background-color: var(--bg-black-less) !important;
 	width: 100% !important;
@@ -2311,7 +2324,8 @@ uni-textarea {
 	background-color: transparent !important;
 }
 
-#page_article_details>uni-view:nth-child(4)::before {
+:is(#page_article_details>uni-view:nth-child(4),
+	#page_forum_details .comment-list)::before {
 	content: '';
 	background-image: url('@/static/img/decor.png');
 	background-size: cover;
@@ -2335,7 +2349,13 @@ uni-textarea {
 	margin: 0 auto !important;
 }
 
-#page_article_details .div_article {
+// 资讯详情/论坛详情
+#page_forum_details .forum-details-wrap {
+	overflow-x: hidden;
+}
+
+#page_article_details .div_article,
+#page_forum_details .forum-details-wrap .forum-info {
 	border-radius: 30px;
 	margin-top: 50px;
 	width: 95%;
@@ -2361,6 +2381,43 @@ uni-textarea {
 	text-align: center;
 }
 
+// 交流论坛详情
+#page_forum_details .forum-details-wrap .forum-info .div_forum {
+	background-color: transparent !important;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+#page_forum_details .div_forum .aside {
+	flex-direction: column-reverse;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto !important;
+}
+
+#page_forum_details .div_forum .aside .info {
+	width: 100%;
+	margin: 20px 0;
+}
+
+#page_forum_details .div_forum .aside .info .user_box {
+	width: 100%;
+
+	justify-content: flex-start !important;
+
+}
+
+#page_forum_details .div_forum .aside .info .user_box .user_avatar {
+	border-radius: 50px;
+	border: 1px solid #fff;
+}
+
+#page_forum_details .div_forum .aside .time {
+	color: var(--color-text);
+}
+
 #page_forum_details .div_forum .desc {
 	width: 80%;
 	margin: 0 auto;
@@ -2370,6 +2427,8 @@ uni-textarea {
 	width: 100% !important;
 	height: 130px !important;
 }
+
+#page_forum_details .rich_text {}
 
 #page_forum_details .rich_text,
 #page_article_details .rich_text {
@@ -2384,8 +2443,8 @@ uni-textarea {
 
 #page_forum_details .div_forum .tag_block {
 	font-size: 12px;
-	margin: 20px 0;
 	color: #544241;
+	margin: 0 !important;
 }
 
 #page_forum_details .div_forum .tag_block .tag {
@@ -2402,6 +2461,10 @@ uni-textarea {
 #page_forum_details .div_forum .tag_block .tag:nth-child(3n + 2) {
 	background: #27b30621;
 	color: #27b306;
+}
+
+#page_forum_details .div_forum .doc {
+	padding: 0 !important;
 }
 
 #page_forum_details .div_forum .doc .left_block,
@@ -2438,10 +2501,24 @@ uni-textarea {
 	margin-right: 5px;
 }
 
-#page_forum_details .comment-list,
 #page_article_details .comment-list {
 	width: 94%;
 	margin: 0 auto;
+}
+
+#page_forum_details .comment-list {
+	position: relative;
+}
+
+#page_forum_details .comment-list::before {
+	top: -13% !important;
+	right: -20% !important;
+}
+
+#page_forum_details .comment-list>uni-view,
+#page_forum_details .comment-list .list_comment,
+#page_forum_details .comment-list .tn-list-view-clas {
+	background-color: transparent !important;
 }
 
 #page_forum_details .comment-list>view,
@@ -2449,7 +2526,6 @@ uni-textarea {
 	border-radius: 0;
 }
 
-#page_forum_details .comment-list .tn-list-view__title,
 #page_article_details .comment-list .tn-list-view__title,
 #page_article_details .uni-card__header {
 	font-size: 32rpx;
