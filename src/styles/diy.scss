@@ -91,7 +91,7 @@ uni-button,
 }
 
 .uni-input-input {
-	color: #544241 !important;
+	color: #fff !important;
 	font-size: 14px !important;
 }
 
@@ -4073,7 +4073,8 @@ uni-textarea {
 }
 
 #exam_list .wrapper-exam .exam-list,
-#evaluation_list .evaluation_wrapper .evaluation_list {
+#evaluation_list .evaluation_wrapper .evaluation_list,
+#page_exam_list .wrapper-exam .exam-list {
 	background-color: var(--bg-trans-less);
 	border-radius: 50px;
 	padding: 30px 15px !important;
@@ -4088,15 +4089,15 @@ uni-textarea {
 }
 
 #exam_list .wrapper-exam .exam-list .exam-item,
-#evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item {
+#evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item,
+#page_exam_list .wrapper-exam .exam-list .exam-item {
 	border: none;
 	border-bottom: var(--border-form-item);
 	border-radius: 0 !important;
 }
 
-#exam_list .wrapper-exam .exam-list .exam-item:nth-last-child(1),
-
-#evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item :nth-last-child(1) {
+:is(#exam_list .wrapper-exam .exam-list .exam-item,
+	#evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item, #page_exam_list .wrapper-exam .exam-list .exam-item):nth-last-child(1) {
 	border: none !important;
 
 }
@@ -5343,7 +5344,8 @@ uni-textarea {
 
 // 答题记录
 #answer_wrong_table,
-#evaluation_list {
+#evaluation_list,
+.page_exam_list {
 	height: calc(100vh - 45px - 5px);
 }
 
