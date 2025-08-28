@@ -3988,9 +3988,29 @@ uni-textarea {
 }
 
 #exam_list .exam-category {
-	padding: 0 15px;
+	padding: 15px;
 	font-size: 13px;
 	color: #544241;
+	background-color: var(--bg-trans-less) !important;
+	border-radius: 50px;
+	margin: 0 auto !important;
+	width: 90% !important;
+
+}
+
+#exam_list .exam-category .tn-grid {
+	gap: 20px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#exam_list .exam-category .tn-grid .tn-grid-item-class {
+	width: auto !important;
+	background-color: transparent !important;
+}
+
+#exam_list .page_exam_subject_list .wrapper-exam .exam-category .exam-category-item {
+	padding: 5px 0 !important;
 }
 
 #exam_list .exam-category .image>div {
@@ -4013,12 +4033,12 @@ uni-textarea {
 }
 
 #exam_list .wrapper-exam .error-record {
-	border: none;
-	background: #f6fafd;
-	margin: 15px 15px 0 15px;
-	width: calc(100% - 30px);
-	border-radius: 5px;
-	padding: 15px;
+	background: var(--bg-trans-less);
+	margin: 15px auto;
+	width: 90%;
+	border-radius: 30px;
+	padding: 30px 15px;
+	border: var(--border-form);
 }
 
 #exam_list .wrapper-exam .error-record .image>div {
@@ -4051,19 +4071,39 @@ uni-textarea {
 	padding: 15px 0;
 }
 
+#exam_list .wrapper-exam .exam-list {
+	background-color: var(--bg-trans-less);
+	border-radius: 50px;
+	padding: 30px 15px !important;
+	width: 90%;
+	margin: 0 auto;
+}
+
 #exam_list .wrapper-exam .exam-list,
 #page_exam_list .wrapper-exam .exam-list,
 #evaluation_list .evaluation_wrapper .evaluation_list {
 	padding: 0 15px;
 }
 
+#exam_list .wrapper-exam .exam-list .exam-item {
+	border: none;
+	border-bottom: var(--border-form-item);
+	border-radius: 0 !important;
+}
+
+#exam_list .wrapper-exam .exam-list .exam-item:nth-last-child(1) {
+	border: none !important;
+
+}
+
 #exam_list .wrapper-exam .exam-list .exam-item,
 #page_exam_list .wrapper-exam .exam-list .exam-item,
 #evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item {
-	padding: 10rpx 20rpx;
+	padding: 20rpx;
 	margin: 10px 0;
 	position: relative;
 	border-radius: 10rpx;
+	align-items: end;
 }
 
 #exam_list .wrapper-exam .exam-list .exam-item .exam-item-left .title-wrap,
@@ -4080,13 +4120,14 @@ uni-textarea {
 	margin-right: 15rpx;
 	color: #544241;
 	font-weight: 500;
+	font-size: var(--font-size-title-small);
 }
 
 #exam_list .wrapper-exam .exam-list .exam-item .exam-item-left .info-row,
 #page_exam_list .wrapper-exam .exam-list .exam-item .exam-item-left .info-row,
 #evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item .evaluation_item_left .info_row {
 	font-size: 12px;
-	flex-direction: column;
+	flex-direction: row;
 }
 
 #exam_list .wrapper-exam .exam-list .exam-item .exam-item-left .info-row .info-row-item,
@@ -4113,36 +4154,35 @@ uni-textarea {
 	content: '分';
 }
 
+#exam_list .wrapper-exam .exam-list .exam-item .exam-item-right {
+	height: auto !important;
+	width: 50px !important;
+}
+
 #exam_list .wrapper-exam .exam-list .exam-item .exam-item-right,
 #page_exam_list .wrapper-exam .exam-list .exam-item .exam-item-right,
 #evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item .evaluation_item_right {
-	position: absolute;
-	bottom: 40rpx;
-	right: 30rpx;
 	width: auto;
 }
 
 #exam_list .wrapper-exam .exam-list .exam-item .exam-item-right .me-btn,
 #page_exam_list .wrapper-exam .exam-list .exam-item .exam-item-right .me-btn,
 #evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item .evaluation_item_right .me-btn {
-	background: linear-gradient(to right, #4a9af0, var(--bg-purple));
-	box-shadow: 2px 2px 3px 0 var(--bg-purple);
 	color: #fff;
 	border-radius: 50%;
-	height: 100rpx;
-	width: 100rpx;
-	line-height: 1.2;
 	font-size: 13px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 10rpx 20rpx;
+	height: auto !important;
+	padding: 2px 5px !important;
+	margin: 0 !important;
 }
 
 #exam_list .wrapper-exam .exam-list .exam-item .exam-item-left .title-wrap .exam-status.open,
 #page_exam_list .wrapper-exam .exam-list .exam-item .exam-item-left .title-wrap .exam-status.open,
 #evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item .evaluation_item_left .title_wrap .evaluation_status.open {
-	color: var(--bg-purple);
+	color: #fff;
 	border: 1px solid var(--bg-purple);
 	background: var(--bg-purple);
 	border-radius: 40px;
@@ -4152,7 +4192,6 @@ uni-textarea {
 // 答题详情
 #exam_details,
 #evaluation_details {
-	background-color: var(--main_bg);
 	width: 100%;
 	margin: 0;
 	font-size: 13px;
@@ -4160,19 +4199,30 @@ uni-textarea {
 	line-height: 20px;
 }
 
+#exam_details .details_view>uni-view:not(.answer_submit_button),
+#evaluation_details .details_view>uni-view:not(.answer_submit_button) {
+	background-color: #ffffffc2 !important;
+	border-radius: 30px !important;
+	padding: 15px !important;
+}
+
+#exam_details .details_view .answer_submit_button,
+#evaluation_details .details_view .answer_submit_button {
+	background-color: transparent !important;
+}
+
 #exam_details .score_show,
 #evaluation_details .score_show {
 	display: flex;
 	align-items: center;
 	padding: 20rpx;
-	background-color: var(--main_primary1);
 	border-radius: 10rpx;
-	color: var(--main_primary3);
+	color: #3d4bc9;
 }
 
 #exam_details .title_margin,
 #evaluation_details .title_margin {
-	margin-bottom: 8rpx;
+	margin-bottom: 20px;
 	margin-top: 1px;
 	color: #333;
 	font-size: 30rpx;
@@ -4186,6 +4236,14 @@ uni-textarea {
 	padding: 10px;
 	border-radius: 10rpx;
 	margin-bottom: 20rpx;
+}
+
+#exam_details .uni-list uni-radio-group,
+#exam_details .uni-list uni-checkbox-group,
+#evaluation_details .uni-list uni-radio-group,
+#evaluation_details .uni-list uni-checkbox-group {
+	display: grid !important;
+	grid-template-columns: 1fr 1fr;
 }
 
 #exam_details .uni-list radio-group,
@@ -4227,13 +4285,14 @@ uni-textarea {
 #exam_details .answer_submit_user_str .answer_textarea,
 #evaluation_details .answer_submit_user_str .answer_textarea {
 	width: 80%;
+	flex: 1;
 }
 
 #exam_details .answer_submit_button .answer_btn_box,
 #evaluation_details .answer_btn_box .answer_btn_box {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
 }
 
 #exam_details .answer_submit_button .answer_btn_submit,
@@ -4243,12 +4302,9 @@ uni-textarea {
 	width: 100%;
 	margin-right: 0;
 	font-size: 13px;
-	background: linear-gradient(to right, #4a9af0, var(--bg-purple));
-	border-radius: 50px !important;
 	height: 36px !important;
 	line-height: 36px !important;
 	margin-top: 20px;
-	box-shadow: 0 5px 10px 0 var(--bg-purple);
 }
 
 #exam_details .answer_submit_button .answer_btn_cancel,
@@ -4299,9 +4355,10 @@ uni-textarea {
 // 优惠券
 #page_coupon,
 #user_coupon_wrapper {
-	background: #f2f2f2;
+	background: transparent;
 	min-height: calc(100vh - 45px);
 	padding: 0;
+	color: #fff;
 }
 
 #page_coupon .container,
@@ -5002,8 +5059,8 @@ uni-textarea {
 }
 
 .uni-table-scroll .answer_link {
-	color: var(--bg-purple);
-	background: #f6fafd;
+	color: #fff;
+	background: var(--bg-purple);
 	border: 1px solid var(--bg-purple);
 	font-size: 12px;
 	margin: 0;
@@ -5276,4 +5333,14 @@ uni-textarea {
 .create_group .uni-list--border-top,
 .create_group .uni-list--border-bottom {
 	display: none;
+}
+
+// 答题记录
+#answer_wrong_table {
+	height: calc(100vh - 45px - 5px);
+
+}
+
+.page_answer_wrong_table .answer_link {
+	color: #fff !important;
 }
