@@ -41,7 +41,8 @@ page {
 	--letter-spacing-btn: 3px;
 	--line-height-btn: 50px;
 
-	--height-btn: 50px // diy-end
+	--height-btn: 50px; // diy-end
+	--purple: #3d4bc9;
 }
 
 // 全局
@@ -4071,7 +4072,8 @@ uni-textarea {
 	padding: 15px 0;
 }
 
-#exam_list .wrapper-exam .exam-list {
+#exam_list .wrapper-exam .exam-list,
+#evaluation_list .evaluation_wrapper .evaluation_list {
 	background-color: var(--bg-trans-less);
 	border-radius: 50px;
 	padding: 30px 15px !important;
@@ -4085,19 +4087,23 @@ uni-textarea {
 	padding: 0 15px;
 }
 
-#exam_list .wrapper-exam .exam-list .exam-item {
+#exam_list .wrapper-exam .exam-list .exam-item,
+#evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item {
 	border: none;
 	border-bottom: var(--border-form-item);
 	border-radius: 0 !important;
 }
 
-#exam_list .wrapper-exam .exam-list .exam-item:nth-last-child(1) {
+#exam_list .wrapper-exam .exam-list .exam-item:nth-last-child(1),
+
+#evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item :nth-last-child(1) {
 	border: none !important;
 
 }
 
 #exam_list .wrapper-exam .exam-list .exam-item,
 #page_exam_list .wrapper-exam .exam-list .exam-item,
+#evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item,
 #evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item {
 	padding: 20rpx;
 	margin: 10px 0;
@@ -4139,7 +4145,7 @@ uni-textarea {
 #exam_list .wrapper-exam .exam-list .exam-item .exam-item-left .info-row .info-row-item view:last-child,
 #page_exam_list .wrapper-exam .exam-list .exam-item .exam-item-left .info-row .info-row-item view:last-child,
 #evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item .evaluation_item_left .info_row .info_row_item view:last-child {
-	color: var(--bg-purple);
+	color: var(--purple);
 	margin-left: 5px;
 }
 
@@ -4200,14 +4206,14 @@ uni-textarea {
 }
 
 #exam_details .details_view>uni-view:not(.answer_submit_button),
-#evaluation_details .details_view>uni-view:not(.answer_submit_button) {
+#evaluation_details .details_view>uni-view:not(.answer_btn_box) {
 	background-color: #ffffffc2 !important;
 	border-radius: 30px !important;
 	padding: 15px !important;
 }
 
 #exam_details .details_view .answer_submit_button,
-#evaluation_details .details_view .answer_submit_button {
+#evaluation_details .details_view .answer_btn_box {
 	background-color: transparent !important;
 }
 
@@ -4289,7 +4295,7 @@ uni-textarea {
 }
 
 #exam_details .answer_submit_button .answer_btn_box,
-#evaluation_details .answer_btn_box .answer_btn_box {
+#evaluation_details .answer_btn_box {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
@@ -4297,14 +4303,14 @@ uni-textarea {
 
 #exam_details .answer_submit_button .answer_btn_submit,
 #exam_details .answer_submit_button .answer_btn_cancel,
-#evaluation_details .answer_btn_box .answer_btn_submit,
-#evaluation_details .answer_btn_box .answer_btn_cancel {
+#evaluation_details .answer_btn_box .me-btn {
 	width: 100%;
+	margin-left: 0 !important;
 	margin-right: 0;
 	font-size: 13px;
 	height: 36px !important;
 	line-height: 36px !important;
-	margin-top: 20px;
+	margin-top: 20px !important;
 }
 
 #exam_details .answer_submit_button .answer_btn_cancel,
@@ -5336,11 +5342,13 @@ uni-textarea {
 }
 
 // 答题记录
-#answer_wrong_table {
+#answer_wrong_table,
+#evaluation_list {
 	height: calc(100vh - 45px - 5px);
-
 }
 
 .page_answer_wrong_table .answer_link {
 	color: #fff !important;
 }
+
+// 测评问卷
