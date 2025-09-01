@@ -1846,13 +1846,19 @@ color:var(--color-title)
 	padding-bottom: 0 !important;
 }
 
-// 仅线下活动
-.page_diy_list.page_offline_activities_list .page-list .customized-list .customized-item .customized-item-body {
+// 仅线下活动&场次安排
+.page_diy_list.page_offline_activities_list .page-list .customized-list .customized-item .customized-item-body,
+.page_schedule_of_sessions_list .customized-item {
 	       padding: 25px 25px 0px 25px 
 		   !important;
 }
-
-.page_diy_list.page_offline_activities_list .page-list .customized-list .customized-item .customized-item-body .item-row .value{
+// 仅场次安排
+.page_schedule_of_sessions_list .customized-item {
+	height: 100px;
+}
+.page_diy_list.page_offline_activities_list .page-list .customized-list .customized-item .customized-item-body .item-row .value,
+.page_schedule_of_sessions_list .customized-item .customized-item-body .item-row .value
+{
 	color:#fff !important;
 }
 
@@ -1909,7 +1915,11 @@ color:var(--color-title)
 #page_diy_list .customized-list .customized-item .item-row.diy-image {
 	order: 1;
 }
+// 仅场次安排
+.page_schedule_of_sessions{
+	min-height: calc(100vh - 45px - 5px);
 
+}
 // 仅影视小说列表
 .page_film_and_television_novels_list .page-list .customized-list .customized-item-body .item-row:first-child {
 	order: 2;
@@ -3273,6 +3283,11 @@ color:var(--color-title)
 .page_offline_activities_list .le-dropdown-menu{
 	    margin-top: 40px !important;
 }
+
+// 场次安排
+.page_schedule_of_sessions_list .le-dropdown-menu{
+	    margin-top: 40px !important;
+}
 #page_diy_list .le-dropdown .le-dropdown-menu .le-dropdown-menu-item {
 	width: 20%;
 	align-items: center;
@@ -3338,8 +3353,7 @@ color:var(--color-title)
 	color: var(--bg-purple) !important;
 }
 
-
-#page_diy_list .customized-list {
+.page_diy_list:not(.page_schedule_of_sessions_list) .customized-list {
 	background-color: var(--bg-trans);
 	border-top:1px solid #fff;
 	border-radius: 50px 50px 0 0;
@@ -3352,6 +3366,20 @@ color:var(--color-title)
 	flex: 1;
 }
 
+// 仅场次安排
+.page_diy_list.page_schedule_of_sessions_list .customized-list {
+	background-color: var(--bg-trans);
+	border-top:1px solid #fff;
+	border-radius: 50px 50px 0 0;
+	width: 100%;
+	display: grid !important;
+	grid-template-columns:1fr 1fr;
+	z-index: 9;
+	position: relative;
+	// min-height: 52vh;
+	// flex: 1;
+	gap:20px
+}
 // 影视小说列表
 .page_film_and_television_novels_list .page-list .customized-list {
 	margin: -25px 0 0 0;
@@ -3370,6 +3398,15 @@ color:var(--color-title)
 	    padding: 60px 10px 0px 10px;
 }
 
+// 场次安排
+.page_schedule_of_sessions_list .page-list .customized-list {
+	margin: -35px 0 0 0;
+	    padding: 60px 10px 0px 10px;
+}
+
+.page_schedule_of_sessions_list .customized-list .customized-item{
+	margin-bottom:0 !important;
+}
 #page_diy_list .customized-list .customized-item {
 	display: inline-block;
 	width: 100% !important;
@@ -3381,7 +3418,7 @@ color:var(--color-title)
 	padding-bottom: 10px;
 }
 
-#page_diy_list .customized-list .customized-item:first-child {
+.page_diy_list:not(.page_schedule_of_sessions_list) .customized-list .customized-item:first-child {
 	margin-top: 50px;
 }
 
@@ -3444,8 +3481,13 @@ color:var(--color-title)
 	height: 40px;
 	width: 100%;
 	// background-color: var(--bg-purple-2);
-}
 
+}
+// 仅场次安排
+.page_diy_list.page_schedule_of_sessions_list .pager {
+	    position: absolute;
+    bottom: 0px;
+}
 #page_diy_list .customized-list .customized-item .customized-item-body .item-row .value image {
 	width: 100%;
 }
@@ -3507,6 +3549,9 @@ color:var(--color-title)
 }
 
 // 模块详情
+#page_diy_details {
+	padding-top:0px !important;
+}
 #page_diy_details .countdown {
 	text-align: center;
 	font-size: 13px;
