@@ -13,7 +13,7 @@ page {
 	--bg-black: #333333;
 	// --bg-black-less: #2c2c2c;
 	--bg-black-less: #333333;
-	
+
 	--bg-purple: #afbaff;
 	--bg-purple-2: #eef0ff;
 	--bg-gray: #f6f6f6;
@@ -61,6 +61,11 @@ page {
 
 .uni-body uni-page-body:not(:has(.page_home)) uni-view:first-child[style="padding-top: 45px;"] {
 	padding-top: 5px !important;
+	padding-bottom: 5px !important;
+}
+
+.uni-body uni-page-body uni-view:first-child {
+	overflow-x: hidden
 }
 
 uni-button,
@@ -138,15 +143,13 @@ uni-button,
 .uni-select,
 
 .group_selector,
-// #account_register .diy_field:not(:has(.uni-select)):not(:has(textarea)),
-// #account_login .container .login-wrapper .input-content .input-item,
+#account_register .uni-input-input,
+#account_forgot .uni-input-input,
+#account_login .container .login-wrapper .input-content .input-item,
 // .uni-body:not(:has(.page_diy_list)):not(:has(.list_cart)):not(:has(.page_forum)) .uni-input-wrapper 
 
 
-.uni-body:has(.page_diy_edit) .uni-input-wrapper 
-
-
-{
+.uni-body:has(.page_diy_edit) .uni-input-wrapper {
 	border-top: none !important;
 	border-left: none !important;
 	border-right: none !important;
@@ -165,6 +168,7 @@ uni-textarea {
 .uni-input-placeholder {
 	font-size: 12px !important;
 	top: 0px !important;
+	color: var(--color-title)
 }
 
 .uni-picker-container .uni-picker-header {
@@ -186,12 +190,12 @@ uni-textarea {
 .tn-tabbar-class .tn-tabbar--shadow {
 	box-shadow: 0px 0px 10px 0px #c9c9c97d !important;
 	background-color: #fff !important;
-	    bottom: 5px !important;
-    left: 50% !important;
-	    width: 95% !important;
-		transform: translateX(-50%) !important;
-    border-radius: 30px !important;
-	padding:0 5px !important
+	bottom: 5px !important;
+	left: 50% !important;
+	width: 95% !important;
+	transform: translateX(-50%) !important;
+	border-radius: 30px !important;
+	padding: 0 5px !important
 }
 
 .tn-tabbar__content__item {
@@ -209,13 +213,15 @@ uni-textarea {
 .uni-body:not(:has(.page_home)) .tn-custom-nav-bar-class {
 	position: relative !important;
 }
+
 .uni-body .tn-custom-nav-bar__bar {
-	box-shadow:none !important;
+	box-shadow: none !important;
 }
+
 .uni-body:not(:has(.page_home)) .tn-custom-nav-bar__bar {
 	background: transparent !important;
 	position: relative !important;
-color:var(--color-title)
+	color: var(--color-title)
 }
 
 .uni-pagination__btn {
@@ -231,11 +237,11 @@ color:var(--color-title)
 
 .uni-pagination--disabled .uni-pagination__child-btn,
 .uni-pagination--disabled .uni-icons {
-	color:var(--color-title) !important;
+	color: var(--color-title) !important;
 }
 
 .uni-pagination__num-current .current-index-text {
-	color:var(--color-title) !important;
+	color: var(--color-title) !important;
 }
 
 .uni-share-title-text {
@@ -656,7 +662,8 @@ color:var(--color-title)
 
 #account_login .container .login-wrapper .input-content .input-item {
 	position: relative;
-	border: none !important;
+	height: auto !important;
+	// border: none !important;
 }
 
 #account_login .container .login-wrapper .input-content .input-item input,
@@ -711,8 +718,9 @@ color:var(--color-title)
 	color: #bdb9b9;
 	text-align: left;
 	width: 40%;
-	display: inline-block;
+	display: inline-flex;
 	float: left;
+	align-items: center;
 }
 
 #account_login .register-section .text,
@@ -745,10 +753,11 @@ color:var(--color-title)
 }
 
 #account_login .face-content .me-btn {
-	margin-top: 20px;
+	margin-top: 20px !important;
 	background: var(--bg-purple);
 	border-radius: var(--border-radius-btn);
 	color: var(--color-title);
+	position: absolute;
 }
 
 #account_login .face-content img {
@@ -956,6 +965,15 @@ color:var(--color-title)
 	display: block;
 }
 
+#account_register .uni-input-input,
+#account_forgot .uni-input-input {
+	height: 20px !important;
+}
+
+#account_register .main:has(.select-modal) {
+	width: 100%;
+}
+
 :is(#account_register,
 	#account_forgot) .strength-fill {
 	background-color: var(--bg-purple) !important;
@@ -1031,7 +1049,7 @@ color:var(--color-title)
 #order_list .search-warpper .left .icon,
 .page_search .search-warpper .left .icon,
 .page_notice_list .search-warpper .left .icon {
-	color: var(--bg-purple);
+	color: var(--purple);
 	font-size: 14px;
 }
 
@@ -1097,7 +1115,7 @@ color:var(--color-title)
 	font-size: 16px;
 	line-height: 36px;
 	height: 36px;
-	border:none;
+	border: none;
 	color: var(--color-title);
 }
 
@@ -1121,9 +1139,11 @@ color:var(--color-title)
 	background: var(--bg-black);
 	box-shadow: none;
 }
-.page_home{
-	background-color:transparent !important
+
+.page_home {
+	background-color: transparent !important
 }
+
 .page_home .nav-wrapper .nav-user uni-image {
 	width: 25px !important;
 	height: 25px !important;
@@ -1388,8 +1408,9 @@ color:var(--color-title)
 	font-weight: var(--font-weight-text);
 	grid-column: span 2;
 }
-#home .list_article .item .right_block .mid_info{
-	color:#fff;
+
+#home .list_article .item .right_block .mid_info {
+	color: #fff;
 	margin-top: 10rpx;
 	font-size: 20rpx;
 }
@@ -1714,10 +1735,13 @@ color:var(--color-title)
 	top: unset !important;
 	left: unset !important;
 }
-:is(#page_forum .scroll-tabs .scroll-view .category-item.active)::before{
+
+:is(#page_forum .scroll-tabs .scroll-view .category-item.active,
+	#page_goods_list .goods-wrapper .left-aside .f-item.active)::before {
 	color: var(--purple) !important;
 
 }
+
 @keyframes xrolling {
 	0% {
 		transform: rotateX(0deg);
@@ -1846,25 +1870,28 @@ color:var(--color-title)
 	padding-bottom: 0 !important;
 }
 
-// 仅线下活动&场次安排
-.page_diy_list.page_offline_activities_list .page-list .customized-list .customized-item .customized-item-body,
-.page_schedule_of_sessions_list .customized-item {
-	       padding: 25px 25px 0px 25px 
-		   !important;
+// 仅场次安排&座位
+:is(.page_schedule_of_sessions_list,
+	.page_seating_arrangements_list) .customized-item {
+	padding: 25px 15px !important;
+	margin-bottom: 0 !important;
+
 }
+
 // 仅场次安排
 .page_schedule_of_sessions_list .customized-item {
 	height: 100px;
 }
-.page_diy_list.page_offline_activities_list .page-list .customized-list .customized-item .customized-item-body .item-row .value,
-.page_schedule_of_sessions_list .customized-item .customized-item-body .item-row .value
-{
-	color:#fff !important;
+
+.page_schedule_of_sessions_list .page-list .customized-list .customized-item .customized-item-body .item-row .value,
+.page_schedule_of_sessions_list .customized-item .customized-item-body .item-row .value {
+	color: #fff !important;
 }
 
-.page_diy_list.page_offline_activities_list .page-list .customized-list .customized-item .customized-item-footer{
-    padding: 0 25px;
+.page_schedule_of_sessions_list .page-list .customized-list .customized-item .customized-item-footer {
+	padding: 0 25px;
 }
+
 #page_diy_list .customized-list .customized-item .item-row {
 	margin-bottom: 12rpx;
 }
@@ -1915,11 +1942,43 @@ color:var(--color-title)
 #page_diy_list .customized-list .customized-item .item-row.diy-image {
 	order: 1;
 }
-// 仅场次安排
-.page_schedule_of_sessions{
+
+// 仅场次安排&座位
+.page_schedule_of_sessions,
+.page_seating_arrangements {
 	min-height: calc(100vh - 45px - 5px);
 
 }
+
+// 仅座位
+.page_seating_arrangements .table_info .table_title {
+	margin-bottom: 20px !important;
+}
+
+.page_seating_arrangements .diy_html table {
+	width: 100%;
+}
+
+.page_seating_arrangements .diy_html table {
+	border: none !important;
+}
+
+.page_seating_arrangements .diy_html table tr {
+	justify-content: center;
+}
+
+.page_seating_arrangements .diy_html table tr th:first-child,
+.page_seating_arrangements .diy_html table tr td:first-child {
+	background: var(--bg-purple) !important;
+	border: var(--border-form) !important;
+}
+
+.page_seating_arrangements .diy_html table th,
+.page_seating_arrangements .diy_html table td {
+	border: var(--border-form) !important;
+
+}
+
 // 仅影视小说列表
 .page_film_and_television_novels_list .page-list .customized-list .customized-item-body .item-row:first-child {
 	order: 2;
@@ -1950,6 +2009,7 @@ color:var(--color-title)
 #page_diy_list .customized-list .customized-item .item-row .value {
 	width: auto;
 	text-align: left;
+	color: #fff !important
 }
 
 #home .list_diy .cp-list-wrap .cp-list-item .item-row .create_time_block {
@@ -2163,16 +2223,20 @@ color:var(--color-title)
 #page_cart .number .input input {
 	border: none;
 }
-#page_cart .number .input .uni-input-input{
-	color:var(--color-text) !important
+
+#page_cart .number .input .uni-input-input {
+	color: var(--color-text) !important
 }
+
 #page_cart .number .input {
 	border: none;
 	margin: 0;
 }
-#page_cart .tn-tabbar-class{
+
+#page_cart .tn-tabbar-class {
 	position: fixed
 }
+
 // 论坛、新闻
 #page_forum,
 #page_article {
@@ -2502,6 +2566,7 @@ color:var(--color-title)
 	padding: 20px 10px;
 	gap: 10px;
 }
+
 #page_article_details .see,
 #page_article_details .list_article .item .right_block .bottom_info .icon {
 	color: var(--color-text);
@@ -2524,7 +2589,8 @@ color:var(--color-title)
 
 :is(#page_article_details>uni-view:nth-child(4),
 	#page_forum_details .comment-list,
-	#page_diy_details .page_diy .comment-title)::before {
+	#page_diy_details .page_diy .comment-title,
+	#page_goods_details .goods-comment)::before {
 	content: '';
 	background-image: url('@/static/img/decor.png');
 	background-size: cover;
@@ -2533,6 +2599,10 @@ color:var(--color-title)
 	right: -23%;
 	height: 250px;
 	width: 250px;
+}
+
+#page_goods_details .goods-comment::before {
+	top: -65% !important;
 }
 
 // 发布评论
@@ -3193,9 +3263,9 @@ color:var(--color-title)
 #page_diy_list .icon-quxiao,
 #page_diy_list .uni-select__input-text,
 #page_diy_list .uni-icon-clear,
-#page_diy_list .uni-icon-search{
+#page_diy_list .uni-icon-search {
 	color: var(--color-text) !important;
-	font-size:14px !important;
+	font-size: 14px !important;
 }
 
 #page_diy_list .uni-easyinput__content {
@@ -3215,8 +3285,7 @@ color:var(--color-title)
 #page_diy_list .date_select,
 #page_diy_list .drop_down .uni-select,
 #page_diy_list .search-wrap .left,
-#page_forum .search-warpper .left,
- {
+#page_forum .search-warpper .left {
 	border-bottom: var(--border-form-item) !important;
 }
 
@@ -3273,21 +3342,17 @@ color:var(--color-title)
 	margin-top: 10px;
 }
 
-// 影视小说列表
-.page_film_and_television_novels_list .page-list .customized-list .le-dropdown-menu {
-	margin-top: 20px !important;
-
+// 影视小说{
+.page_film_and_television_novels_list .search-wrap {
+	height: 225px;
 }
 
-// 线下活动列表
-.page_offline_activities_list .le-dropdown-menu{
-	    margin-top: 40px !important;
+// 线下活动列表&场次安排&影视小说&座位安排
+:is(.page_offline_activities_list, .page_schedule_of_sessions_list,
+	.page_film_and_television_novels_list, .page_seating_arrangements_list) .le-dropdown-menu {
+	margin-top: 40px !important;
 }
 
-// 场次安排
-.page_schedule_of_sessions_list .le-dropdown-menu{
-	    margin-top: 40px !important;
-}
 #page_diy_list .le-dropdown .le-dropdown-menu .le-dropdown-menu-item {
 	width: 20%;
 	align-items: center;
@@ -3328,7 +3393,7 @@ color:var(--color-title)
 .page_diy_list .map_btn {
 	position: absolute;
 	bottom: -13%;
-	left: 4%;
+	left: 8%;
 	z-index: 999;
 	background: var(--bg-purple);
 	padding: 5px 0;
@@ -3340,7 +3405,7 @@ color:var(--color-title)
 
 // 影视小说列表
 .page_film_and_television_novels_list .page-list .map_btn {
-	bottom: -40% !important;
+	bottom: 0px !important;
 }
 
 // 线下活动列表
@@ -3353,9 +3418,10 @@ color:var(--color-title)
 	color: var(--bg-purple) !important;
 }
 
-.page_diy_list:not(.page_schedule_of_sessions_list) .customized-list {
+:is(.page_film_and_television_novels_list,
+	.page_customized_products_list, .page_offline_activities_list) .customized-list {
 	background-color: var(--bg-trans);
-	border-top:1px solid #fff;
+	border-top: 1px solid #fff;
 	border-radius: 50px 50px 0 0;
 	width: 100%;
 	display: block !important;
@@ -3366,47 +3432,42 @@ color:var(--color-title)
 	flex: 1;
 }
 
-// 仅场次安排
-.page_diy_list.page_schedule_of_sessions_list .customized-list {
+// 仅场次安排&座位安排
+:is(.page_schedule_of_sessions_list,
+	.page_seating_arrangements_list) .customized-list {
 	background-color: var(--bg-trans);
-	border-top:1px solid #fff;
+	border-top: 1px solid #fff;
 	border-radius: 50px 50px 0 0;
 	width: 100%;
 	display: grid !important;
-	grid-template-columns:1fr 1fr;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: repeat(5, 1fr);
 	z-index: 9;
 	position: relative;
 	// min-height: 52vh;
-	// flex: 1;
-	gap:20px
+	flex: 1;
+	gap: 20px
 }
-// 影视小说列表
-.page_film_and_television_novels_list .page-list .customized-list {
-	margin: -25px 0 0 0;
-	padding: 42px 30px;
 
-}
 
 //  定制商品列表
 .page_customized_products_list .page-list .customized-list {
 	margin: -90px 0 0 0;
 	padding: 110px 10px 0px 10px;
 }
-// 线下活动列表
-.page_offline_activities_list .page-list .customized-list {
-	margin: -35px 0 0 0;
-	    padding: 60px 10px 0px 10px;
+
+// 影视小说列表
+:is(.page_film_and_television_novels_list) .customized-list {
+	margin: -50px 0 0 0 !important;
+	padding: 12px 30px 0px 30px !important;
 }
 
-// 场次安排
-.page_schedule_of_sessions_list .page-list .customized-list {
-	margin: -35px 0 0 0;
-	    padding: 60px 10px 0px 10px;
+// 线下活动列表&场次安排&座位安排
+:is(.page_offline_activities_list, .page_schedule_of_sessions_list, .page_seating_arrangements_list) .page-list .customized-list {
+	margin: -90px 0 0 0;
+	padding: 51px 30px 0px 30px;
 }
 
-.page_schedule_of_sessions_list .customized-list .customized-item{
-	margin-bottom:0 !important;
-}
 #page_diy_list .customized-list .customized-item {
 	display: inline-block;
 	width: 100% !important;
@@ -3418,7 +3479,7 @@ color:var(--color-title)
 	padding-bottom: 10px;
 }
 
-.page_diy_list:not(.page_schedule_of_sessions_list) .customized-list .customized-item:first-child {
+:is(.page_film_and_television_novels_list, .page_customized_products_list, .page_offline_activities_list) .customized-list .customized-item:first-child {
 	margin-top: 50px;
 }
 
@@ -3459,7 +3520,7 @@ color:var(--color-title)
 
 #page_diy_list .customized-list .customized-item .customized-item-footer {
 	padding: 0 10px;
-	color:#fff;
+	color: #fff;
 }
 
 #page_diy_list .customized-list .customized-item .customized-item-footer .praise,
@@ -3483,11 +3544,14 @@ color:var(--color-title)
 	// background-color: var(--bg-purple-2);
 
 }
-// 仅场次安排
-.page_diy_list.page_schedule_of_sessions_list .pager {
-	    position: absolute;
-    bottom: 0px;
+
+// 仅场次安排&座位
+:is(.page_diy_list.page_schedule_of_sessions_list,
+	.page_seating_arrangements_list) .pager {
+	//     position: absolute;
+	// bottom: 0px;
 }
+
 #page_diy_list .customized-list .customized-item .customized-item-body .item-row .value image {
 	width: 100%;
 }
@@ -3550,8 +3614,9 @@ color:var(--color-title)
 
 // 模块详情
 #page_diy_details {
-	padding-top:0px !important;
+	padding-top: 0px !important;
 }
+
 #page_diy_details .countdown {
 	text-align: center;
 	font-size: 13px;
@@ -3576,11 +3641,11 @@ color:var(--color-title)
 #page_diy_details .user_box {
 	background-color: var(--bg-trans);
 	margin-bottom: 20px;
-	margin-left:20px;
-	margin-right:20px;
+	margin-left: 20px;
+	margin-right: 20px;
 	border-radius: 0 0 50px 50px;
 	border: var(--border-form-item);
-	border-top:none;
+	border-top: none;
 	height: 80px;
 	padding: 0 30px;
 }
@@ -3598,17 +3663,17 @@ color:var(--color-title)
 	width: 100%;
 }
 
-#page_diy_details .score_wrapper {
+#page_diy_details .score_wrapper {}
 
-}
 // 仅影视小说&定制商品
 .page_film_and_television_novels,
 .page_customized_products {
-	padding: 286px 0px  0px 0px!important;
+	padding: 286px 0px 0px 0px !important;
 }
+
 // 仅定制商品
-.page_offline_activities{
-	padding: 0px!important;
+.page_offline_activities {
+	padding: 0px !important;
 }
 
 #page_diy_details .score_wrapper {
@@ -3626,18 +3691,20 @@ color:var(--color-title)
 	margin-left: 5%;
 }
 
-#page_diy_details  .score_num_text {
+#page_diy_details .score_num_text {
 	color: var(--purple) !important;
 	font-size: 28px !important;
 }
 
-#page_diy_details  .score_person_num {
+#page_diy_details .score_person_num {
 	font-size: 14px !important;
 	color: var(--purple) !important;
 }
-#page_diy_details  .score_wrapper uni-canvas{
+
+#page_diy_details .score_wrapper uni-canvas {
 	width: 190px !important;
 }
+
 #page_diy_details .score_wrapper .score_num_text {
 	width: 30px;
 	color: #bdb9b9;
@@ -3651,8 +3718,8 @@ color:var(--color-title)
 	border-radius: 50px;
 	padding: 30px;
 	border: var(--border-form-item);
-	margin-left:20px;
-	margin-right:20px;
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
 #page_diy_details uni-view:nth-child(6).warp {
@@ -3716,8 +3783,8 @@ color:var(--color-title)
 	flex-wrap: wrap;
 	justify-content: center;
 	margin-bottom: 30px;
-	margin-left:20px;
-	margin-right:20px;
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
 // 仅影视小说
@@ -3745,8 +3812,8 @@ color:var(--color-title)
 
 .page_diy_details .page_diy .tab-pane {
 	margin-bottom: 60px;
-	margin-left:20px;
-	margin-right:20px;
+	margin-left: 20px;
+	margin-right: 20px;
 	width: unset !important;
 }
 
@@ -3779,18 +3846,17 @@ color:var(--color-title)
 }
 
 .page_customized_products_details,
-.page_offline_activities_details
- {
+.page_offline_activities_details {
 	padding-top: 0 !important;
-	overflow-x:hidden
+	overflow-x: hidden
 }
 
 // 影视小说详情&定制商品详情
 #page_diy_details .tabs {
 	font-size: 12px;
 	color: #544241;
-	margin-left:20px;
-	margin-right:20px;
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
 // 定制商品&影视小说
@@ -3802,8 +3868,9 @@ color:var(--color-title)
 	margin-top: 20px;
 	overflow-x: hidden;
 }
+
 // 仅线下活动
-.page_diy_list.page_offline_activities_list .page-list .page_diy{
+.page_schedule_of_sessions_list .page-list .page_diy {
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -3811,6 +3878,7 @@ color:var(--color-title)
 	margin-top: 20px;
 	overflow-x: hidden;
 }
+
 #page_diy_details .page_diy::before {
 	bottom: 9% !important;
 	right: -6% !important;
@@ -3829,6 +3897,7 @@ color:var(--color-title)
 	// position: absolute;
 	// background-color: var(--bg-black-less);
 }
+
 #page_diy_details .page_diy .cover_wrapper {
 	position: absolute;
 	top: 0;
@@ -3890,8 +3959,8 @@ color:var(--color-title)
 #page_diy_details .page_diy .qrcode {
 	margin-top: 20px;
 	margin-bottom: -5px;
-	margin-left:20px;
-	margin-right:20px;
+	margin-left: 20px;
+	margin-right: 20px;
 	position: relative;
 	top: unset;
 	left: unset;
@@ -3899,7 +3968,7 @@ color:var(--color-title)
 	right: unset;
 	border-radius: 50px 50px 0 0;
 	border: var(--border-form-item);
-	border-bottom:none;
+	border-bottom: none;
 	height: 80px;
 }
 
@@ -3924,7 +3993,7 @@ color:var(--color-title)
 
 #page_goods_list .guess-item {
 	// flex-flow: column-reverse;
-	background-color: #fff;
+	background-color: var(--bg-black-less);
 	border-radius: 30px;
 	margin: 0 !important;
 	width: 45%;
@@ -3964,13 +4033,13 @@ color:var(--color-title)
 }
 
 #page_goods_list .goods-wrapper .left-aside .f-item.active {
-	color: var(--bg-purple);
+	color: var(--purple);
 	background-color: transparent !important;
 }
 
 
 #page_goods_list .goods-wrapper .left-aside .f-item {
-	color: #fff;
+	color: var(--color-text);
 	padding: 3px 15px;
 	font-size: var(--font-size-title-small);
 	font-weight: var(--font-weight-title-small);
@@ -3995,7 +4064,8 @@ color:var(--color-title)
 	border-radius: 50px 50px 0 0;
 	background-color: var(--bg-trans);
 	gap: 20px;
-	justify-content: space-around;
+	border: 1px solid #fff;
+	justify-content: center !important;
 }
 
 #page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .image-wrapper {
@@ -4004,14 +4074,14 @@ color:var(--color-title)
 
 #page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .title {
 	font-size: 15px;
-	color: #544241;
+	color: #fff;
 	font-weight: bold;
 	margin-top: 5px;
 	padding: 0 10px;
 }
 
 #page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .title2 {
-	color: #bdb9b9;
+	color: #fff;
 	font-size: 12px;
 	padding: 0 10px;
 
@@ -4026,6 +4096,12 @@ color:var(--color-title)
 
 }
 
+.page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .price-wrapper .price_ago,
+.page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .info {
+	color: #fff !important;
+
+}
+
 #page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .price-wrapper .price {
 	color: var(--bg-purple);
 	font-weight: 600;
@@ -4036,8 +4112,11 @@ color:var(--color-title)
 }
 
 #page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .item-row {
-
 	padding: 0 10px;
+}
+
+#page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .item-row .score_num_text {
+	color: #fff
 }
 
 #page_goods_list .goods-wrapper .right-aside .goods-list .guess-section .operation {
@@ -4098,7 +4177,7 @@ color:var(--color-title)
 	height: auto !important;
 	left: unset !important;
 	right: 0px !important;
-	bottom: 10px !important;
+	bottom: 80px !important;
 	writing-mode: vertical-lr !important;
 	padding: 5px !important;
 	text-align: center;
@@ -4138,6 +4217,9 @@ color:var(--color-title)
 	border-radius: 50px 50px 0 0;
 	background-color: var(--bg-trans);
 	padding: 30px 0;
+	border-top: var(--border-form);
+	border-left: var(--border-form);
+	border-right: var(--border-form);
 
 }
 
@@ -4152,8 +4234,8 @@ color:var(--color-title)
 }
 
 #page_goods_details .swiper .uni-swiper-wrapper uni-swiper-item {
-	height: 300px !important;
-	width: 300px !important;
+	height: 200px !important;
+	width: 200px !important;
 }
 
 #page_goods_details .div_goods {
@@ -4177,6 +4259,11 @@ color:var(--color-title)
 	padding: 0 15px 30px 15px;
 	background-color: var(--bg-trans);
 	border-radius: 0 0 50px 50px;
+
+	border-bottom: var(--border-form);
+	border-left: var(--border-form);
+	border-right: var(--border-form);
+	margin-top: -1px;
 }
 
 #page_goods_details .div_goods .wrap .price_wrap {
@@ -4193,6 +4280,10 @@ color:var(--color-title)
 	border-radius: 50px 50px 0 0;
 	margin: 0 !important;
 	padding: 30px 15px 0 15px;
+
+	border-top: var(--border-form);
+	border-left: var(--border-form);
+	border-right: var(--border-form);
 }
 
 #page_goods_details .div_goods .wrap .price_wrap .price {
@@ -4228,6 +4319,9 @@ color:var(--color-title)
 	order: 3;
 	background-color: var(--bg-trans);
 	padding: 15px;
+
+	border-left: var(--border-form);
+	border-right: var(--border-form);
 }
 
 #page_goods_details .div_goods .wrap .info {
@@ -4237,6 +4331,9 @@ color:var(--color-title)
 	background-color: var(--bg-trans);
 	padding: 0 15px 30px 15px;
 	border-radius: 0 0 50px 50px;
+	border-bottom: var(--border-form);
+	border-left: var(--border-form);
+	border-right: var(--border-form);
 }
 
 #page_goods_details .div_goods .wrap .description {
@@ -4246,7 +4343,8 @@ color:var(--color-title)
 	border-radius: 50px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	justify-items: start
+	justify-items: start;
+	border: var(--border-form);
 }
 
 #page_goods_details .score_wrapper {
@@ -4352,6 +4450,8 @@ color:var(--color-title)
 	min-height: 200px;
 	background-color: var(--bg-trans);
 	border-radius: 50px;
+	border: var(--border-form);
+
 }
 
 #page_goods_details .goods-details-base .bar_title {
@@ -4367,9 +4467,10 @@ color:var(--color-title)
 }
 
 #page_goods_details .goods-comment {
-	background-color: var(--bg-trans);
+	background-color: var(--bg-black-less);
 	border-radius: 50px 50px 0 0;
 	padding-top: 15px;
+	position: relative;
 }
 
 #page_goods_details .bar_title {
@@ -4978,6 +5079,9 @@ color:var(--color-title)
 	color: var(--purple) !important;
 }
 
+#page_diy_edit .content .main {
+	width: 100%;
+}
 
 #page_diy_edit .uni-select,
 #page_diy_edit .input-value {
@@ -5860,28 +5964,29 @@ color:var(--color-title)
 	margin-top: 40px;
 	background-color: var(--bg-black-less) !important;
 	border-radius: 50px 50px 0 0;
-	padding: 30px 30px 80px 30px !important; 
+	padding: 30px 30px 80px 30px !important;
 }
 
 .goods_hot .hot_title {
 	text-align: left;
-    letter-spacing: 5px;
-    margin-bottom: 20px;
-    color: #fff;
-    position: absolute;
-    left: 17%;
-	display:flex;
-	flex-direction:column;
-	justify-content:center;
-	align-items:center;
-	gap:10px;
+	letter-spacing: 5px;
+	margin-bottom: 20px;
+	color: #fff;
+	position: absolute;
+	left: 17%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
 }
+
 .goods_hot .hot_title:after {
-	    content: "";
-    display: block;
-    width: 85px;
-    height: 4px;
-    background-color: var(--bg-purple);
+	content: "";
+	display: block;
+	width: 85px;
+	height: 4px;
+	background-color: var(--bg-purple);
 }
 
 .goods_hot .list_goods {
@@ -5893,17 +5998,18 @@ color:var(--color-title)
 
 .goods_hot .list_goods .goods_item {
 	width: 100% !important;
-	margin-top:30px;
-	background-color:#fff;
+	margin-top: 30px;
+	background-color: #fff;
 	border-radius: 30px;
 	padding-bottom: 20px;
-	 break-inside: avoid;
-  page-break-inside: avoid;
-  margin-left:0 !important;
-  margin-right:0 !important;
+	break-inside: avoid;
+	page-break-inside: avoid;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
 }
+
 .goods_hot .list_goods .goods_item:first-child {
-	margin-top:80px  !important
+	margin-top: 80px !important
 }
 
 
