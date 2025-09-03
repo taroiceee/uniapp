@@ -55,14 +55,13 @@ page {
 	background-size: 100% 500px;
 	background-repeat: no-repeat;
 	background-position: 0 0;
-	height: 100% !important;
+	height: auto !important;
 }
 
 .uni-body uni-page-body>uni-view:first-child[style="padding-top: 45px;"] {
-	// padding-top:0 !important;
+	padding-top: 0px;
 	display: flex;
 	flex-direction: column;
-	height: 100%;
 }
 
 .uni-body uni-page-body uni-view:first-child {
@@ -71,14 +70,14 @@ page {
 
 
 // 主内容最小高度
-.uni-body uni-page-body>uni-view:first-child>uni-view:nth-child(2) {
-	// min-height: calc(100vh - 45px - 40px);
+.uni-body uni-page-body:not(:has(.page_cart)):not(:has(.page_user)):not(:has(.page_order_details)):not(:has(.page_diy_list))>uni-view:first-child:has(.tn-custom-nav-bar)>uni-view:nth-child(2) {
+	min-height: calc(100vh - 45px - 5px);
 }
 
-// :is(.uni-body uni-page-body:has(.page-from),
-// 	.uni-body uni-page-body:has(.uni-forms))>uni-view:first-child:has(.tn-custom-nav-bar)>uni-view:nth-child(2) {
-// 	min-height: calc(100vh - 45px - 40px) !important;
-// }
+:is(.uni-body uni-page-body:has(.page-from),
+	.uni-body uni-page-body:has(.uni-forms))>uni-view:first-child:has(.tn-custom-nav-bar)>uni-view:nth-child(2) {
+	min-height: calc(100vh - 45px - 40px) !important;
+}
 
 .uni-select__input-placeholder {
 	font-size: 14px !important;
@@ -87,20 +86,6 @@ page {
 .uni-switch-input.uni-switch-input-checked {
 	border-color: var(--bg-purple) !important;
 	background-color: var(--bg-purple) !important;
-}
-
-.search-warpper .left {
-	border: none !important;
-}
-
-.search-btn {
-	background-color: var(--bg-purple) !important;
-	color: var(--color-title) !important;
-}
-
-.uni-popup__error,
-.uni-button-color {
-	color: var(--purple) !important;
 }
 
 // 加购
@@ -265,7 +250,7 @@ uni-button,
 // .uni-body:not(:has(.page_diy_list)):not(:has(.list_cart)):not(:has(.page_forum)) .uni-input-wrapper 
 
 
-.uni-body .uni-input-wrapper {
+.uni-body:has(.page_diy_edit) .uni-input-wrapper {
 	border-top: none !important;
 	border-left: none !important;
 	border-right: none !important;
@@ -303,26 +288,6 @@ uni-textarea {
 	display: none;
 }
 
-// 导航栏
-.tn-custom-nav-bar-class,
-.tn-custom-nav-bar__bar--fixed {
-	position: unset !important;
-}
-
-.tn-custom-nav-bar__bar>uni-view:first-child {
-	position: absolute;
-}
-
-.tn-custom-nav-bar__bar__content {
-	position: unset !important;
-	width: 100% !important;
-}
-
-#home .tn-custom-nav-bar-class,
-#home .tn-custom-nav-bar__bar--fixed {
-	position: fixed !important;
-}
-
 .tn-tabbar-class .tn-tabbar--shadow {
 	box-shadow: 0px 0px 10px 0px #c9c9c97d !important;
 	background-color: #fff !important;
@@ -347,18 +312,18 @@ uni-textarea {
 	color: var(--purple) !important;
 }
 
-.uni-body .tn-custom-nav-bar-class {
-	position: unset;
+.uni-body:not(:has(.page_home)) .tn-custom-nav-bar-class {
+	position: relative !important;
 }
 
 .uni-body .tn-custom-nav-bar__bar {
 	box-shadow: none !important;
 }
 
-.uni-body .tn-custom-nav-bar__bar {
-	background-color: transparent !important;
-	position: unset;
-	color: var(--color-title) !important;
+.uni-body:not(:has(.page_home)) .tn-custom-nav-bar__bar {
+	background: transparent !important;
+	position: relative !important;
+	color: var(--color-title)
 }
 
 .uni-pagination__btn {
@@ -705,7 +670,6 @@ uni-textarea {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	background-color: #fff;
 }
 
 #account_login::before,
@@ -731,9 +695,9 @@ uni-textarea {
 	content: '找回密码';
 }
 
-#account_login::after,
-#account_register::after,
-#account_forgot::after {
+:is(#account_login,
+	#account_register,
+	#account_forgot)::after {
 	position: absolute;
 	top: 150px;
 	left: 50px;
@@ -743,9 +707,9 @@ uni-textarea {
 	letter-spacing: 10px;
 }
 
-#account_login .uni-input-input,
-#account_register .uni-input-input,
-#account_forgot .uni-input-input {
+:is(#account_login,
+	#account_register,
+	#account_forgot) .uni-input-input {
 	color: #333 !important
 }
 
@@ -753,33 +717,27 @@ uni-textarea {
 	height: auto !important;
 }
 
-#account_login .container .custom-1,
-#account_register .container .custom-1 {
+:is(#account_login, #account_register) .container .custom-1 {
 	display: none;
 }
 
-#account_login .container .custom-2::before,
-#account_register .container .custom-2::before {
+:is(#account_login, #account_register) .container .custom-2::before {
 	display: none;
 }
 
-#account_login .container .custom-2::after,
-#account_register .container .custom-2::after {
+:is(#account_login, #account_register) .container .custom-2::after {
 	display: none;
 }
 
-#account_login.container .custom-2,
-#account_register.container .custom-2 {
+:is(#account_login, #account_register).container .custom-2 {
 	display: none;
 }
 
-#account_login .container .custom-3,
-#account_register .container .custom-3 {
+:is(#account_login, #account_register) .container .custom-3 {
 	display: none;
 }
 
-#account_login .container .custom-3::before,
-#account_register .container .custom-3::before {
+:is(#account_login, #account_register) .container .custom-3::before {
 	display: none;
 }
 
@@ -1003,8 +961,7 @@ uni-textarea {
 	text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.3);
 }
 
-#account_register .wrapper .left-top-sign,
-#account_forgot .wrapper .left-top-sign {
+:is(#account_register, #account_forgot) .wrapper .left-top-sign {
 	font-size: 62px;
 	color: #f8f8f8;
 	position: relative;
@@ -1131,12 +1088,12 @@ uni-textarea {
 	height: 20px !important;
 }
 
-#account_register .main {
+#account_register .main:has(.select-modal) {
 	width: 100%;
 }
 
-#account_register .strength-fill,
-#account_forgot .strength-fill {
+:is(#account_register,
+	#account_forgot) .strength-fill {
 	background-color: var(--bg-purple) !important;
 }
 
@@ -1218,13 +1175,8 @@ uni-textarea {
 	font-size: 14px;
 }
 
-.page_diy_list .search-wrap .left .uni-input-wrapper {
-	border: none !important;
-
-}
-
 #home .search-warpper .left .icon {
-	color: var(--purple);
+	color: #fff;
 }
 
 #home .search-warpper .left .search-input,
@@ -1242,15 +1194,15 @@ uni-textarea {
 	color: var(--bg-purple);
 }
 
-#home .search-warpper .left .search-input .uni-input-wrapper {
-	border-bottom: 2px solid var(--purple)
+#home .search-warpper .left .search-input {
+	color: #fff;
+	display: none;
 }
 
 #home .search-warpper .left .search-input::after {
 	content: '搜索';
 	color: #fff;
 	display: block;
-
 }
 
 #home .search-warpper .right,
@@ -1296,7 +1248,13 @@ uni-textarea {
 
 // 首页
 #home .header_bg {
-	display: none;
+	position: absolute;
+	background-color: var(--bg-black);
+	width: 100%;
+	height: 500px;
+	border-radius: 3em/4em;
+	top: -250px;
+	left: 0;
 }
 
 #home .tn-custom-nav-bar__bar {
@@ -1306,11 +1264,6 @@ uni-textarea {
 
 .page_home {
 	background-color: transparent !important
-}
-
-.page_home .nav-wrapper {
-	background-color: var(--bg-black-less);
-	color: #fff !important
 }
 
 .page_home .nav-wrapper .nav-user uni-image {
@@ -1349,6 +1302,7 @@ uni-textarea {
 }
 
 #home .swiper {
+	height: 230px;
 	background-color: var(--bg-white);
 }
 
@@ -1399,7 +1353,7 @@ uni-textarea {
 
 #home .list_menu .tn-grid-class.tn-grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: repeat(4, 1fr);
 	justify-content: center;
 	align-items: center;
 }
@@ -1629,7 +1583,7 @@ uni-textarea {
 
 #home .list_goods {
 	display: grid;
-	grid-template-columns: 1fr;
+	grid-template-columns: repeat(1, 1fr);
 	gap: 30px;
 	width: 95%;
 	margin: 0 auto;
@@ -1837,8 +1791,8 @@ uni-textarea {
 	gap: 15px;
 }
 
-#home .uni-card.article_list.uni-card--border .card-title-box .card-title,
-#home .uni-card.notice_list.list_diy.uni-card--border .card-title-box .card-title {
+:is(#home .uni-card.article_list.uni-card--border,
+	#home .uni-card.notice_list.list_diy.uni-card--border) .card-title-box .card-title {
 	color: #fff;
 }
 
@@ -1862,11 +1816,15 @@ uni-textarea {
 	margin-top: 10px;
 }
 
-#home .uni-card.article_list.uni-card--border .card-title-box .more,
-#home .uni-card.notice_list.list_diy.uni-card--border .card-title-box .more {
+:is(#home .uni-card.article_list.uni-card--border,
+	#home .uni-card.notice_list.list_diy.uni-card--border) .card-title-box .more {
 	color: #fff;
 }
 
+#home .card-title-box .more::after {
+	// content: "More ➢";
+	// margin-left: 5px;
+}
 
 #home .category-item {
 	border: none;
@@ -1891,20 +1849,20 @@ uni-textarea {
 	color: var(--bg-purple);
 }
 
-#home .category-item.active::before,
-#home .list_link .title::before,
-#page_forum .scroll-tabs .scroll-view .category-item.active::before,
-#page_article .scroll-tabs .scroll-view .category-item.active::before,
-#page_article .page_article .filter-wrapper .filter-item.active::before,
-#page_forum .page_forum .filter-wrapper .filter-item.active::before,
-#page_goods_list .goods-wrapper .left-aside .f-item.active::before,
-.page_diy_list .page-list .classification-list .scroll-view .category-item.active::before,
-#releasing_notices .v-tabs__container-item.active::before,
-#my_home_page .v-tabs__container-item.active::before,
-.pay-type-nav .pay-type-one uni-text::before,
-#order_list .me-tabs .tabs-item .tab-item.active::before,
-.list_history .v-tabs__container-item.active::before,
-#page_statistics .d-row-line .title::before {
+:is(#home .category-item.active,
+	#home .list_link .title,
+	#page_forum .scroll-tabs .scroll-view .category-item.active,
+	#page_article .scroll-tabs .scroll-view .category-item.active,
+	#page_article .page_article .filter-wrapper .filter-item.active,
+	#page_forum .page_forum .filter-wrapper .filter-item.active,
+	#page_goods_list .goods-wrapper .left-aside .f-item.active,
+	.page_diy_list .page-list .classification-list .scroll-view .category-item.active,
+	#releasing_notices .v-tabs__container-item.active,
+	#my_home_page .v-tabs__container-item.active,
+	.pay-type-nav .pay-type-one:has(.undeline-act) uni-text,
+	#order_list .me-tabs .tabs-item .tab-item.active,
+	.list_history .v-tabs__container-item.active,
+	#page_statistics .d-row-line .title)::before {
 	content: '▶';
 	color: var(--bg-purple);
 	margin-right: 10px;
@@ -1917,15 +1875,16 @@ uni-textarea {
 	left: unset !important;
 }
 
-#page_forum .scroll-tabs .scroll-view .category-item.active::before,
-#page_goods_list .goods-wrapper .left-aside .f-item.active::before,
-#page_article .page_article .filter-wrapper .filter-item.active::before,
-#page_forum .page_forum .filter-wrapper .filter-item.active::before,
-#releasing_notices .v-tabs__container-item.active::before,
-#my_home_page .v-tabs__container-item.active::before,
-.pay-type-nav .pay-type-one uni-text::before,
-#order_list .me-tabs .tabs-item .tab-item.active::before,
-.list_history .v-tabs__container-item.active::before {
+:is(#page_forum .scroll-tabs .scroll-view .category-item.active,
+	#page_goods_list .goods-wrapper .left-aside .f-item.active,
+	#page_article .page_article .filter-wrapper .filter-item.active,
+	#page_forum .page_forum .filter-wrapper .filter-item.active,
+	#releasing_notices .v-tabs__container-item.active,
+	#my_home_page .v-tabs__container-item.active,
+	.pay-type-nav .pay-type-one:has(.undeline-act) uni-text,
+	#order_list .me-tabs .tabs-item .tab-item.active,
+
+	.list_history .v-tabs__container-item.active)::before {
 
 	color: var(--purple) !important;
 
@@ -2006,7 +1965,7 @@ uni-textarea {
 
 #home .list_link .uni-scroll-view-content {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: repeat(3, 1fr);
 	gap: 15px;
 }
 
@@ -2031,9 +1990,9 @@ uni-textarea {
 }
 
 #home .list_diy .cp-list-wrap {
-	margin: 20px 15px;
+	margin: 0 15px;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(2, 1fr);
 	gap: 20rpx;
 }
 
@@ -2045,26 +2004,7 @@ uni-textarea {
 }
 
 #home .list_diy .cp-list-wrap .cp-list-item {
-	padding: 30rpx;
-	border-radius: 30px !important;
-	border: var(--border-form) !important;
-	background-color: var(--bg-trans) !important;
-	margin-left: 0 !important;
-	margin-right: 0 !important;
-}
-
-#home .list_diy .cp-list-wrap .cp-list-item .item-row .label {
-	display: none;
-}
-
-#home .list_diy .cp-list-wrap .cp-list-item .item-row .value.text {
-	width: auto;
-	text-align: left;
-	color: var(--color-title)
-}
-
-#home .list_diy .cp-list-wrap .cp-list-item .diy-list-price .value.text {
-	color: var(--purple) !important
+	padding: 20rpx 24rpx;
 }
 
 // 定制商品&影视小说
@@ -2080,8 +2020,8 @@ uni-textarea {
 }
 
 // 仅场次安排&座位
-.page_schedule_of_sessions_list .customized-item,
-.page_seating_arrangements_list .customized-item {
+:is(.page_schedule_of_sessions_list,
+	.page_seating_arrangements_list) .customized-item {
 	padding: 25px 15px !important;
 	margin-bottom: 0 !important;
 
@@ -2155,7 +2095,7 @@ uni-textarea {
 // 仅场次安排&座位
 .page_schedule_of_sessions,
 .page_seating_arrangements {
-	// min-height: calc(100vh - 45px - 5px);
+	min-height: calc(100vh - 45px - 5px);
 
 }
 
@@ -2214,6 +2154,7 @@ uni-textarea {
 	width: auto;
 }
 
+#home .list_diy .cp-list-wrap .cp-list-item .item-row .value.text,
 #page_diy_list .customized-list .customized-item .item-row .value {
 	width: auto;
 	text-align: left;
@@ -2223,8 +2164,7 @@ uni-textarea {
 #home .list_diy .cp-list-wrap .cp-list-item .item-row .create_time_block {
 	color: #666;
 	font-size: 24rpx;
-	text-align: left;
-	margin-bottom: 20rpx;
+	text-align: right;
 }
 
 #home .list_diy .cp-list-wrap .cp-list-item .item-row.diy-image {
@@ -2252,7 +2192,6 @@ uni-textarea {
 	font-size: 14px;
 	color: var(--bg-purple);
 	background: transparent;
-	height: 35px !important;
 }
 
 #home .list_diy .cp-list-wrap .cp-list-item .icon,
@@ -2268,7 +2207,7 @@ uni-textarea {
 
 // 购物车
 #page_cart {
-	// min-height: calc(100vh - 52px);
+	min-height: calc(100vh - 52px);
 	position: relative;
 	background: transparent;
 }
@@ -2485,12 +2424,12 @@ uni-textarea {
 #page_forum .page_forum,
 #page_article .page_article {
 	background: transparent;
-	// min-height: calc(100vh - 117px);
+	min-height: calc(100vh - 117px);
 	margin-top: 20px;
 }
 
-#page_forum .uni-scroll-view-content,
-#page_article .uni-scroll-view-content,
+#page_forum .uni-scroll-view-content:has(.hits),
+#page_article .uni-scroll-view-content:has(.hits),
 #page_forum .list_forum {
 	display: flex;
 	flex-direction: column;
@@ -2576,12 +2515,11 @@ uni-textarea {
 	margin-bottom: 30px;
 }
 
-#page_forum .forum-hot .forum-hot-title::after,
-#page_article_details .uni-card__header .uni-card__header-content-title::after,
-#page_forum_details .comment-list .tn-list-view__title::after,
-#page_diy_details .page_diy .comment-title::after,
-#page_goods_details .comment-title::after,
-#page_statistics .chart .title::after {
+:is(#page_forum .forum-hot .forum-hot-title,
+	#page_article_details .uni-card__header .uni-card__header-content-title,
+	#page_forum_details .comment-list .tn-list-view__title,
+	#page_diy_details .page_diy .comment-title,
+	#page_goods_details .comment-title, #page_statistics .chart .title)::after {
 	content: '';
 	display: block;
 	width: 80px;
@@ -2589,25 +2527,25 @@ uni-textarea {
 	background-color: var(--bg-purple);
 }
 
-// #page_forum .uni-scroll-view-content:not(:has(.hits)) {
-// 	display: flex;
-// 	flex-direction: row;
-// 	width: 100%;
-// 	margin: 0 auto;
-// 	justify-content: center;
-// 	align-items: center;
-// 	gap: 15px;
-// }
+#page_forum .uni-scroll-view-content:not(:has(.hits)) {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+}
 
-// #page_article .uni-scroll-view-content:not(:has(.hits)) {
-// 	display: flex;
-// 	flex-direction: row;
-// 	width: 60%;
-// 	margin: 0 auto;
-// 	justify-content: center;
-// 	align-items: center;
-// 	gap: 15px;
-// }
+#page_article .uni-scroll-view-content:not(:has(.hits)) {
+	display: flex;
+	flex-direction: row;
+	width: 60%;
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+}
 
 #page_forum .scroll-wrapper {
 	overflow-x: scroll;
@@ -2836,10 +2774,10 @@ uni-textarea {
 	background-color: transparent !important;
 }
 
-#page_article_details>uni-view:nth-child(4)::before,
-#page_forum_details .comment-list::before,
-#page_diy_details .page_diy .comment-title::before,
-#page_goods_details .goods-comment::before {
+:is(#page_article_details>uni-view:nth-child(4),
+	#page_forum_details .comment-list,
+	#page_diy_details .page_diy .comment-title,
+	#page_goods_details .goods-comment)::before {
 	content: '';
 	background-image: url('@/static/img/decor.png');
 	background-size: cover;
@@ -3088,7 +3026,7 @@ uni-textarea {
 
 // 交流论坛
 #forum_table {
-	// height: calc(100vh - 10px) !important;
+	height: calc(100vh - 10px) !important;
 }
 
 #forum_table .uni-table-scroll button[type='default'] {
@@ -3296,11 +3234,11 @@ uni-textarea {
 	border: var(--border-form-trans);
 }
 
-#page_user .my-order {
+#page_user .my-order:has(.menu-img) {
 	background-color: var(--bg-purple);
 }
 
-#page_user .my-order .title-wrap .more {
+#page_user .my-order:has(.menu-img) .title-wrap .more {
 	color: var(--color-title);
 }
 
@@ -3471,7 +3409,7 @@ uni-textarea {
 
 #page_user .nav-list {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: repeat(4, 1fr);
 	row-gap: 20px;
 	width: 94%;
 	margin: 0 auto 20px auto;
@@ -3523,7 +3461,7 @@ uni-textarea {
 #page_diy_list {
 	padding: 15px 0 0 0;
 	border-radius: 50px 50px 0 0;
-	// min-height: calc(100vh - 45px - 5px);
+	min-height: calc(100vh - 45px - 5px);
 	// background-color: var(--bg-trans);
 	display: flex;
 	flex-direction: column;
@@ -3655,10 +3593,8 @@ uni-textarea {
 }
 
 // 线下活动列表&场次安排&影视小说&座位安排
-.page_offline_activities_list .le-dropdown-menu,
-.page_schedule_of_sessions_list .le-dropdown-menu,
-.page_film_and_television_novels_list .le-dropdown-menu,
-.page_seating_arrangements_list .le-dropdown-menu {
+:is(.page_offline_activities_list, .page_schedule_of_sessions_list,
+	.page_film_and_television_novels_list, .page_seating_arrangements_list) .le-dropdown-menu {
 	margin-top: 40px !important;
 }
 
@@ -3733,9 +3669,8 @@ uni-textarea {
 	color: var(--bg-purple) !important;
 }
 
-.page_film_and_television_novels_list .customized-list,
-.page_customized_products_list .customized-list,
-.page_offline_activities_list .customized-list {
+:is(.page_film_and_television_novels_list,
+	.page_customized_products_list, .page_offline_activities_list) .customized-list {
 	background-color: var(--bg-trans);
 	border-top: 1px solid #fff;
 	border-radius: 50px 50px 0 0;
@@ -3749,15 +3684,14 @@ uni-textarea {
 }
 
 // 仅场次安排&座位安排 错题记录
-.page_schedule_of_sessions_list .customized-list,
-.page_seating_arrangements_list .customized-list,
+:is(.page_schedule_of_sessions_list,
+	.page_seating_arrangements_list) .customized-list,
 #page_diy_table .list-wrap-row,
 .page_logistics_delivery_table .logistics_delivery_wrapper .list-wrap .list,
-#answer_wrong_table .uni-table-scroll,
-#message_table .uni-table-scroll,
-#forum_table .uni-table-scroll,
-#comment_list .uni-table-scroll,
-.page_search .search-list {
+:is(#answer_wrong_table,
+	#message_table,
+	#forum_table,
+	#comment_list) .uni-table-scroll {
 	background-color: var(--bg-trans);
 	border-top: 1px solid #fff;
 	border-radius: 50px 50px 0 0;
@@ -3765,7 +3699,7 @@ uni-textarea {
 	display: grid !important;
 	align-items: start;
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: repeat(5, 1fr);
 	z-index: 9;
 	position: relative;
 	flex: 1;
@@ -3773,24 +3707,22 @@ uni-textarea {
 }
 
 #page_diy_table .list-wrap-row,
-.page_logistics_delivery_table .logistics_delivery_wrapper .list-wrap .list,
-.page_search .search-list {
+.page_logistics_delivery_table .logistics_delivery_wrapper .list-wrap .list {
 	grid-template-rows: unset !important;
 
 }
 
-#answer_wrong_table .uni-table-scroll,
-#message_table .uni-table-scroll,
-#forum_table .uni-table-scroll,
-#comment_list .uni-table-scroll {
+:is(#answer_wrong_table,
+	#message_table,
+	#forum_table,
+	#comment_list) .uni-table-scroll {
 	display: block !important;
 	flex: 1;
 	margin: 50px 0 0 0;
 	padding: 50px 10px 0px 10px;
 }
 
-#comment_list .uni-table-scroll,
-.page_search .search-list {
+#comment_list .uni-table-scroll {
 	margin: 20px 0 0 0 !important;
 	padding: 30px 10px 0px 10px !important;
 }
@@ -3802,7 +3734,7 @@ uni-textarea {
 }
 
 // 影视小说列表
-.page_film_and_television_novels_list .customized-list {
+:is(.page_film_and_television_novels_list) .customized-list {
 	margin: -95px 0 0 0 !important;
 	padding: 57px 30px 0px 30px !important;
 }
@@ -3814,8 +3746,7 @@ uni-textarea {
 }
 
 // &场次安排&座位安排
-.page_schedule_of_sessions_list .page-list .customized-list,
-.page_seating_arrangements_list .page-list .customized-list {
+:is(.page_schedule_of_sessions_list, .page_seating_arrangements_list) .page-list .customized-list {
 	margin: -40px 0 0 0;
 	padding: 51px 30px 0px 30px;
 }
@@ -3831,9 +3762,7 @@ uni-textarea {
 	padding-bottom: 10px;
 }
 
-.page_film_and_television_novels_list .customized-list .customized-item:first-child,
-.page_customized_products_list .customized-list .customized-item:first-child,
-.page_offline_activities_list .customized-list .customized-item:first-child {
+:is(.page_film_and_television_novels_list, .page_customized_products_list, .page_offline_activities_list) .customized-list .customized-item:first-child {
 	margin-top: 50px;
 }
 
@@ -3856,7 +3785,7 @@ uni-textarea {
 }
 
 #home .list_diy .cp-list-wrap .cp-list-item .content {
-	justify-content: flex-start;
+	justify-content: flex-end;
 	gap: 10px;
 }
 
@@ -3869,7 +3798,7 @@ uni-textarea {
 	display: flex;
 	gap: 4px;
 	align-items: center;
-	color: var(--purple);
+	color: var(--bg-purple);
 }
 
 #page_diy_list .customized-list .customized-item .customized-item-footer {
@@ -3899,6 +3828,12 @@ uni-textarea {
 
 }
 
+// 仅场次安排&座位
+:is(.page_diy_list.page_schedule_of_sessions_list,
+	.page_seating_arrangements_list) .pager {
+	//     position: absolute;
+	// bottom: 0px;
+}
 
 #page_diy_list .customized-list .customized-item .customized-item-body .item-row .value image {
 	width: 100%;
@@ -3957,12 +3892,12 @@ uni-textarea {
 }
 
 .pagesC-film_and_television_novels-details .page_diy_details {
-	// padding-top: 0 !important;
+	padding-top: 0 !important;
 }
 
 // 模块详情
 #page_diy_details {
-	// padding-top: 0px !important;
+	padding-top: 0px !important;
 }
 
 #page_diy_details .countdown {
@@ -4087,7 +4022,7 @@ uni-textarea {
 
 #page_diy_details .info-wrapper .row {
 	display: grid !important;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(2, 1fr);
 	gap: 10px;
 }
 
@@ -4195,7 +4130,7 @@ uni-textarea {
 
 .page_customized_products_details,
 .page_offline_activities_details {
-	// padding-top: 0 !important;
+	padding-top: 0 !important;
 	overflow-x: hidden
 }
 
@@ -4704,6 +4639,12 @@ uni-textarea {
 	align-items: end;
 }
 
+#page_goods_details .score_wrapper uni-view:has(.tn-rate-class):has(.score_person_num) {
+	// display: flex;
+	// flex-direction: row;
+	// align-items: center;
+	// gap: 20px;
+}
 
 #page_goods_details .score_wrapper .tn-rate {
 	float: left;
@@ -4763,7 +4704,7 @@ uni-textarea {
 	line-height: 20px;
 	clear: both;
 	display: grid;
-	grid-template-columns: 1fr;
+	grid-template-columns: repeat(1, 1fr);
 	gap: 10px;
 	padding-top: 10px;
 	grid-row: 3;
@@ -4938,7 +4879,7 @@ uni-textarea {
 
 // 留言
 #i_want_to_customize_edit {
-	// height: calc(100vh - 45px - 5px);
+	height: calc(100vh - 45px - 5px);
 }
 
 #message_list .btn-release {
@@ -5018,7 +4959,7 @@ uni-textarea {
 
 //在线留言列表
 .message_list .message_wrapper {
-	// height: calc(100vh - 45px - 5px) !important;
+	height: calc(100vh - 45px - 5px) !important;
 
 }
 
@@ -5074,7 +5015,7 @@ uni-textarea {
 
 // 答题
 #exam_list .page_exam_subject_list {
-	// height: calc(100vh - 45px - 5px) !important;
+	height: calc(100vh - 45px - 5px) !important;
 
 }
 
@@ -5189,9 +5130,8 @@ uni-textarea {
 	border-radius: 0 !important;
 }
 
-#exam_list .wrapper-exam .exam-list .exam-item:nth-last-child(1),
-#evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item:nth-last-child(1),
-#page_exam_list .wrapper-exam .exam-list .exam-item:nth-last-child(1) {
+:is(#exam_list .wrapper-exam .exam-list .exam-item,
+	#evaluation_list .evaluation_wrapper .evaluation_list .evaluation_item, #page_exam_list .wrapper-exam .exam-list .exam-item):nth-last-child(1) {
 	border: none !important;
 
 }
@@ -5451,8 +5391,8 @@ uni-textarea {
 
 }
 
-#page_diy_edit .uni-input-placeholder,
-#page_diy_edit .selected-area.placeholder {
+#page_diy_edit:not(:has(.pay-model-inn)) .uni-input-placeholder,
+#page_diy_edit:not(:has(.pay-model-inn)) .selected-area.placeholder {
 	line-height: 23px;
 	color: #333 !important;
 }
@@ -5500,7 +5440,7 @@ uni-textarea {
 }
 
 
-#page_diy_edit .custom-from-item .content uni-text:nth-last-child(1)[style="margin-left: 5px;"] {
+#page_diy_edit .custom-from-item .content:has(.uni-stat__select) uni-text:nth-last-child(1)[style="margin-left: 5px;"] {
 	display: none;
 }
 
@@ -5515,7 +5455,7 @@ uni-textarea {
 #page_coupon,
 #user_coupon_wrapper {
 	background: transparent;
-	// min-height: calc(100vh - 45px);
+	min-height: calc(100vh - 45px);
 	padding: 0;
 	color: #fff;
 }
@@ -5636,7 +5576,7 @@ uni-textarea {
 
 // 订单
 #order_list {
-	// min-height: calc(100vh - 133px);
+	min-height: calc(100vh - 133px);
 }
 
 #order_list .me-tabs {}
@@ -5790,7 +5730,7 @@ uni-textarea {
 	margin: 20rpx 24rpx;
 	border-radius: 8rpx;
 	padding: 24rpx;
-	// min-height: calc(100vh - 45px - 5px);
+	min-height: calc(100vh - 45px - 5px);
 	background-color: transparent !important;
 }
 
@@ -6057,64 +5997,57 @@ uni-textarea {
 }
 
 // 收藏 +答题记录 + 留言反馈 +交流论坛
-#user_collect_wrapper .uni-searchbar__cancel,
-#answer_wrong_table .uni-searchbar__cancel,
-#message_table .uni-searchbar__cancel,
-#forum_table .uni-searchbar__cancel,
-#comment_list .uni-searchbar__cancel {
+:is(#user_collect_wrapper, #answer_wrong_table,
+	#message_table,
+	#forum_table,
+	#comment_list) .uni-searchbar__cancel {
 	display: none !important;
 
 }
 
-#user_collect_wrapper .uni-searchbar__box,
-#answer_wrong_table .uni-searchbar__box,
-#message_table .uni-searchbar__box,
-#forum_table .uni-searchbar__box,
-#comment_list .uni-searchbar__box {
+:is(#user_collect_wrapper, #answer_wrong_table,
+	#message_table,
+	#forum_table,
+	#comment_list) .uni-searchbar__box {
 	width: 80% !important;
 	margin: 0 auto !important;
 }
 
-#user_collect_wrapper .uni-searchbar__box,
-#answer_wrong_table .uni-searchbar__box,
-#message_table .uni-searchbar__box,
-#forum_table .uni-searchbar__box,
-#comment_list .uni-searchbar__box {
+:is(#user_collect_wrapper, #answer_wrong_table,
+	#message_table,
+	#forum_table,
+	#comment_list) .uni-searchbar__box {
 	background-color: transparent !important;
 	border-bottom: var(--border-form-item) !important;
 	border-radius: 0 !important;
 	justify-content: flex-start;
 }
 
-#user_collect_wrapper .uni-input-input,
-#answer_wrong_table .uni-input-input,
-#message_table .uni-input-input,
-#forum_table .uni-input-input,
-#comment_list .uni-input-input {
+:is(#user_collect_wrapper, #answer_wrong_table,
+	#message_table,
+	#forum_table,
+	#comment_list) .uni-input-input {
 	color: var(--color-title) !important;
 }
 
-#user_collect_wrapper .uni-searchbar__text-placeholder,
-#answer_wrong_table .uni-searchbar__text-placeholder,
-#message_table .uni-searchbar__text-placeholder,
-#forum_table .uni-searchbar__text-placeholder,
-#comment_list .uni-searchbar__text-placeholder {
+:is(#user_collect_wrapper, #answer_wrong_table,
+	#message_table,
+	#forum_table,
+	#comment_list) .uni-searchbar__text-placeholder {
 	color: var(--color-title) !important;
 }
 
-#user_collect_wrapper .uniui-home,
-#answer_wrong_table .uniui-home,
-#message_table .uniui-home,
-#forum_table .uniui-home,
-#comment_list .uniui-home {
+:is(#user_collect_wrapper, #answer_wrong_table,
+	#message_table,
+	#forum_table,
+	#comment_list) .uniui-home {
 	font-size: 0px;
 }
 
-#user_collect_wrapper .uniui-home::before,
-#answer_wrong_table .uniui-home::before,
-#message_table .uniui-home::before,
-#forum_table .uniui-home::before,
-#comment_list .uniui-home::before {
+:is(#user_collect_wrapper, #answer_wrong_table,
+	#message_table,
+	#forum_table,
+	#comment_list) .uniui-home::before {
 	content: "";
 	background-image: url('@/static/img/icon/icon-sousuo.svg') !important;
 	background-size: cover;
@@ -6264,7 +6197,7 @@ uni-textarea {
 
 // 个人中心模块
 #page_diy_table {
-	// min-height: calc(100vh - 45px);
+	min-height: calc(100vh - 45px);
 
 	display: flex;
 	flex-direction: column;
@@ -6341,7 +6274,7 @@ uni-textarea {
 	width: 20%;
 }
 
-#page_diy_table .toolbar {
+#page_diy_table .toolbar:not(:has(uni-view)) {
 	width: 0 !important;
 }
 
@@ -6361,8 +6294,7 @@ uni-textarea {
 }
 
 #page_diy_table .list-wrap-row .list-item,
-.page_logistics_delivery_table .logistics_delivery_wrapper .list-wrap .list .list-item,
-.page_search .search-list .search-item-wrapper {
+.page_logistics_delivery_table .logistics_delivery_wrapper .list-wrap .list .list-item {
 	background: var(--bg-black-less) !important;
 	box-shadow: none;
 	width: 100% !important;
@@ -6373,8 +6305,8 @@ uni-textarea {
 	padding: 15px !important;
 }
 
-#page_diy_table .list-wrap-row .list-item,
-.page_logistics_delivery_table .logistics_delivery_wrapper .list-wrap .list .list-item {
+#page_diy_table .list-wrap-row .list-item:has(img),
+.page_logistics_delivery_table .logistics_delivery_wrapper .list-wrap .list .list-item:has(img) {
 	padding-top: 150px !important;
 }
 
@@ -6398,7 +6330,7 @@ uni-textarea {
 	color: #fff !important;
 }
 
-.page_logistics_delivery_table .logistics_delivery_wrapper .list-wrap .list .list-item .item-row .value {
+.page_logistics_delivery_table .logistics_delivery_wrapper .list-wrap .list .list-item .item-row:not(:has(.label)) .value {
 	width: 100% !important;
 
 }
@@ -6464,7 +6396,7 @@ uni-textarea {
 	background: var(--bg-purple);
 }
 
-#page_diy_table .operate-bar .btn-info {
+#page_diy_table .operate-bar:not(:has(.btn-delete)) .btn-info {
 	grid-column: span 4;
 }
 
@@ -6501,7 +6433,7 @@ uni-textarea {
 	font-size: 14px !important;
 }
 
-#page_diy_view .uni-easyinput__content,
+#page_diy_view .uni-easyinput__content:not(:has(textarea)),
 #page_diy_view .uni-date {
 	background-color: transparent !important;
 	border-radius: 0 !important;
@@ -6562,7 +6494,7 @@ uni-textarea {
 	width: 120px;
 }
 
-.page-from .uni-forms-item__content {
+.page-from .uni-forms-item__content:has(.main):has(.select-modal) {
 	border-bottom: var(--border-form-item);
 
 }
@@ -6593,7 +6525,7 @@ uni-textarea {
 	width: 92%;
 	margin: 15px auto;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(2, 1fr);
 	gap: 15px;
 }
 
@@ -6628,7 +6560,7 @@ uni-textarea {
 	margin-top: 20px;
 }
 
-.uni-table-td {
+.uni-table-td:has(.answer_link) {
 	display: flex !important;
 	flex-direction: column;
 	gap: 5px;
@@ -6720,20 +6652,6 @@ uni-textarea {
 	margin: 0 auto;
 }
 
-.page_notice_details .uni-card {
-	background-color: var(--bg-trans) !important;
-	border-radius: 30px !important;
-	border: var(--border-form-item) !important;
-}
-
-.page_notice_details .uni-card__header {
-	display: flex;
-	flex-direction: column !important;
-	justify-content: center !important;
-	align-items: center !important;
-	gap: 10px;
-}
-
 .page_notice_details .uni-card__content {
 	line-height: 28px !important;
 	font-size: 14px !important;
@@ -6787,7 +6705,7 @@ uni-textarea {
 }
 
 .message_list .message_wrapper .list-warp {
-	// height: calc(100vh - 95px - 88px) !important;
+	height: calc(100vh - 95px - 88px) !important;
 	overflow: hidden;
 }
 
@@ -6931,8 +6849,7 @@ uni-textarea {
 
 // 聊天
 .chat_list .chat {
-	padding-top: 30px;
-	flex: 1
+	padding-top: 30px
 }
 
 .chat_list .chat .header {
@@ -7002,9 +6919,9 @@ uni-textarea {
 	top: unset !important;
 }
 
-// .uni-body uni-page-body uni-view:has(.create_group) {
-// 	height: 100vh;
-// }
+.uni-body uni-page-body uni-view:has(.create_group) {
+	height: 100vh;
+}
 
 .create_group .uni-list {
 	background-color: transparent !important;
@@ -7033,15 +6950,15 @@ uni-textarea {
 #comment_list,
 #evaluation_list,
 .page_exam_list {
-	// height: calc(100vh - 45px - 5px);
+	height: calc(100vh - 45px - 5px);
 	display: flex;
 	flex-direction: column;
 }
 
-#answer_wrong_table .uni-searchbar,
-#message_table .uni-searchbar,
-#forum_table .uni-searchbar,
-#comment_list .uni-searchbar {
+:is(#answer_wrong_table,
+	#message_table,
+	#forum_table,
+	#comment_list) .uni-searchbar {
 	width: 100% !important;
 	padding: 0 !important;
 	display: block !important;
@@ -7049,20 +6966,20 @@ uni-textarea {
 }
 
 // 滚动条
-#answer_wrong_table .uni-table-scroll::-webkit-scrollbar,
-#message_table .uni-table-scroll::-webkit-scrollbar,
-#forum_table .uni-table-scroll::-webkit-scrollbar,
-#comment_list .uni-table-scroll::-webkit-scrollbar {
+:is(#answer_wrong_table,
+	#message_table,
+	#forum_table,
+	#comment_list) .uni-table-scroll::-webkit-scrollbar {
 	display: block !important;
 	width: 0px !important;
 	height: 5px !important;
 	background-color: #f0f0f0 !important;
 }
 
-#answer_wrong_table .uni-table-scroll::-webkit-scrollbar-thumb,
-#message_table .uni-table-scroll::-webkit-scrollbar-thumb,
-#forum_table .uni-table-scroll::-webkit-scrollbar-thumb,
-#comment_list .uni-table-scroll::-webkit-scrollbar-thumb {
+:is(#answer_wrong_table,
+	#message_table,
+	#forum_table,
+	#comment_list) .uni-table-scroll::-webkit-scrollbar-thumb {
 	display: block !important;
 	background-color: #afbaff !important;
 	border-radius: 4px !important;
@@ -7088,7 +7005,7 @@ uni-textarea {
 
 // 通知
 #releasing_notices {
-	// min-height: calc(100vh - 45px - 5px);
+	min-height: calc(100vh - 45px - 5px);
 }
 
 #releasing_notices .v-tabs__container {
@@ -7153,7 +7070,7 @@ uni-textarea {
 
 // 用户主页
 #my_home_page {
-	// min-height: calc(100vh - 45px - 5px);
+	min-height: calc(100vh - 45px - 5px);
 }
 
 #my_home_page .list_wrapper {
@@ -7232,7 +7149,7 @@ uni-textarea {
 }
 
 #my_home_page .list_wrapper .dynamic,
-.list_wrapper .user-content .tab-content {
+.list_wrapper .user-content .tab-content:not(:has(.dynamic-title)) {
 	padding: 20px;
 	background-color: var(--bg-trans);
 	display: flex;
@@ -7325,7 +7242,7 @@ uni-textarea {
 	width: 100% !important;
 }
 
-.pay-type-nav .pay-type-one {
+.pay-type-nav .pay-type-one:has(.undeline-act) {
 	color: var(--purple) !important;
 	font-weight: bolder !important;
 }
@@ -7398,7 +7315,7 @@ uni-textarea {
 .list_history .item_history .history_box {
 	flex-direction: row-reverse;
 	align-items: center;
-	// padding-top: 0 !important;
+	padding-top: 0 !important;
 }
 
 .list_history .item_history .history_box .right_block {
@@ -7424,8 +7341,7 @@ uni-textarea {
 }
 
 // 错题详情 + 在线留言详情
-#answer_wrong_detail .view,
-#forum_edit .view {
+:is(#answer_wrong_detail, #forum_edit) .view {
 	font-size: 14px !important;
 	margin-bottom: 22px;
 	display: flex;
@@ -7433,14 +7349,12 @@ uni-textarea {
 
 }
 
-#answer_wrong_detail .diy_field,
-#forum_edit .diy_field {
+:is(#answer_wrong_detail, #forum_edit) .diy_field:not(:has(img)):not(:has(textarea)):not(:has(uni-switch)) {
 	border-bottom: var(--border-form-item);
 	color: var(--purple) !important;
 }
 
-#answer_wrong_detail .uni-input-input,
-#forum_edit .uni-input-input {
+:is(#answer_wrong_detail, #forum_edit) .uni-input-input {
 	color: var(--purple) !important;
 
 }
@@ -7458,36 +7372,4 @@ uni-textarea {
 
 .after-sale-form uni-button {
 	height: 35px !important;
-}
-
-// 搜索
-.search-wrapper {
-	min-height: unset !important;
-}
-
-.page_search .search-list .search-item-wrapper .search-item-common .content {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.page_search .search-list .search-item-wrapper .search-item-common .title {
-	text-align: center;
-}
-
-.page_search .search-list .search-item-wrapper .search-item-common .title,
-.page_search .search-list .search-item-wrapper .search-item-common .content .content-right {
-	color: #fff !important;
-}
-
-.page_search .search-list .search-item-wrapper .search-item-common .content {
-	flex-direction: column;
-}
-
-// 聊天
-
-.uni-list-chat {
-	background-color: transparent !important;
-	margin-bottom: 20px;
 }
