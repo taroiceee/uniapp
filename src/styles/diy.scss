@@ -44,18 +44,20 @@ page {
 	--purple: #3f4a94;
 
 
-	// 背景底图+样式
+	// --purple: #3d4bc9;
+}
 
+// 全局
+
+// 背景底图+样式
+.uni-body uni-page-body {
 	background-image: url('@/static/img/pageBg-3.png') !important;
 	background-size: 100% 1000rpx;
 	background-repeat: no-repeat;
 	background-position: 0 0;
-
-
-
+	height: 100% !important;
 }
 
-// 全局
 .uni-body uni-page-body>uni-view:first-child[style="padding-top: 45px;"] {
 	// padding-top:0 !important;
 	display: flex;
@@ -380,11 +382,14 @@ uni-textarea {
 	color: var(--purple) !important;
 }
 
-.tn-custom-nav-bar__bar {
+.uni-body .tn-custom-nav-bar__bar {
+	box-shadow: none !important;
+}
+
+.uni-body .tn-custom-nav-bar__bar {
 	background-color: transparent !important;
 	position: unset;
 	color: var(--color-title) !important;
-	box-shadow: none !important;
 }
 
 .uni-pagination__btn {
@@ -566,9 +571,9 @@ uni-textarea {
 #page_score_edit .me-btn {
 	background: var(--bg-purple) !important;
 	color: var(--color-title);
-	border-radius: 16rpx !important;
-	height: 176rpx !important;
-	line-height: 176rpx !important;
+	border-radius: 8rpx !important;
+	height: 88rpx !important;
+	line-height: 88rpx !important;
 	font-size: 28rpx !important;
 	margin-top: 180rpx;
 	padding: 0;
@@ -596,7 +601,7 @@ uni-textarea {
 }
 
 #page_score_edit .tn-rate__wrap__icon {
-	font-size: 100rpx !important;
+	font-size: 50rpx !important;
 }
 
 // 评论页
@@ -664,7 +669,7 @@ uni-textarea {
 .list_comment .list_reply_block .list_reply_box .list_reply .reply_right {
 	position: absolute;
 	right: 0;
-	top: 16rpx;
+	top: 0.5rem;
 	display: flex;
 	font-size: 28rpx !important;
 	color: var(--bg-purple);
@@ -1202,11 +1207,11 @@ uni-textarea {
 }
 
 #home .search-warpper .left {
-	padding: 24rpx 60rpx !important;
+	padding: 24rpx 30rpx !important;
 	background: transparent;
 	border: none;
 	border-bottom: var(--border-form);
-	height: 140rpx !important;
+	height: 70rpx !important;
 	margin-right: 20rpx;
 }
 
@@ -1221,11 +1226,11 @@ uni-textarea {
 #order_list .search-warpper .left,
 .page_search .search-warpper .left,
 .page_notice_list .search-warpper .left {
-	padding: 24rpx 60rpx !important;
+	padding: 24rpx 30rpx !important;
 	background: transparent;
 	border: none;
 	border-bottom: var(--border-form-item);
-	height: 140rpx !important;
+	height: 70rpx !important;
 	margin-right: 20rpx;
 }
 
@@ -1403,7 +1408,7 @@ uni-textarea {
 }
 
 #home .menu {
-	padding: 80rpx;
+	padding: 40rpx;
 	overflow: hidden;
 	// background-color: var(--bg-gray);
 	margin: 0rpx;
@@ -1420,7 +1425,7 @@ uni-textarea {
 
 #home .list_menu .menu-item .image {
 	display: none;
-	width: 160rpx !important;
+	width: 80rpx !important;
 }
 
 #home .list_menu .tn-grid-class.tn-grid {
@@ -1494,7 +1499,7 @@ uni-textarea {
 #home .notice_list {
 	// margin: 0 2rpx !important;
 	// border: none;
-	// padding-top: 2rpx;
+	// padding-top: 1rpx;
 }
 
 #home .uni-card,
@@ -1506,10 +1511,10 @@ uni-textarea {
 #home .uni-card:not(.article_list.uni-card--border) {
 	// border: none !important;
 	// box-shadow: 0 0 20rpx 0 var(--bg-purple);
-	// margin: 20rpx 40rpx !important;
+	// margin: 10rpx 20rpx !important;
 	// border-radius: 30rpx !important;
-	// padding: 0 40rpx !important;
-	// padding-top: 40rpx !important;
+	// padding: 0 20rpx !important;
+	// padding-top: 20rpx !important;
 }
 
 #home .uni-card.article_list.uni-card--border,
@@ -1613,20 +1618,20 @@ uni-textarea {
 
 #home .list_article .item .right_block .mid_info {
 	color: #fff;
-	margin-top: 20rpx;
-	font-size: 40rpx;
+	margin-top: 10rpx;
+	font-size: 20rpx;
 }
 
 #page_article .list_article .item .right_block .mid_info {
 	color: var(--color-title);
-	margin-top: 20rpx;
-	font-size: 40rpx;
+	margin-top: 10rpx;
+	font-size: 20rpx;
 }
 
 #page_article_details .list_article .item .right_block .mid_info {
 	color: #fff;
-	margin-top: 20rpx;
-	font-size: 40rpx;
+	margin-top: 10rpx;
+	font-size: 20rpx;
 }
 
 #home .list_article .item .right_block .bottom_info,
@@ -1688,7 +1693,6 @@ uni-textarea {
 	height: 100%;
 	width: 100%;
 }
-
 
 #home .list_goods .goods_item uni-view:nth-child(2):not(.desc) {
 	display: flex;
