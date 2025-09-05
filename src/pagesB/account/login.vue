@@ -144,8 +144,8 @@ export default {
         , "商家用户"
       ],
       form: {
-        username: '',
-        password: '',
+        username: 'admin',
+        password: 'asd123',
         face_image: "",
         remember: false,
         agreed: false,
