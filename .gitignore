@@ -5,9 +5,12 @@ node_modules（原版）/
 node_modules/
 unpackage/
 dist/
+src/__MACOSX/src/components/
+src/__MACOSX/src/pages/
 # local env files
 .env.local
 .env.*.local
+.js
 
 # Log files
 npm-debug.log*
@@ -23,3 +26,23 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+._.DS_Store
+*._.DS_Store
+*._.DS_Store*
+
+
+src/__MACOSX/src/._.DS_Store
+src/__MACOSX/src/components/._.DS_Store
+src/__MACOSX/src/pages/._.DS_Store
+src/__MACOSX/src/pagesA/._.DS_Store
+src/__MACOSX/src/pagesB/._.DS_Store
+src/__MACOSX/src/pagesC/._.DS_Store
+src/components/jsencrypt/(删除)jsencrypt.min.js
+src/__MACOSX/src/pagesC/registered_user/._view.vue
+src/__MACOSX/src/static/img/._decor.png
+src/components/jsencrypt/(鍒犻櫎)jsencrypt.min.js
+src/components/jsencrypt/(删除)jsencrypt.min.js
+src/pagesC/registered_user/view.vue
+src/components/jsencrypt/(删除)jsencrypt.min.js
+src/components/jsencrypt/(删除)jsencrypt.min.js
+src/__MACOSX/src/styles/._diy.scss

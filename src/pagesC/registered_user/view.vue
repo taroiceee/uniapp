@@ -136,7 +136,7 @@
           </text>
             </uni-forms-item>
         <uni-forms-item v-if="$check_field('get','user_preferences') || ($check_field('add','user_preferences') || $check_field('set','user_preferences'))" label="用户喜好" name="user_preferences">
-              <uni-data-select
+              <uni-data-select class="yonghuxihao uni-data-select"
               v-model="form.user_preferences"
               :localdata="list_user_preferences"
               :clear="!disabledObj['user_preferences_isDisabled']"
