@@ -2015,7 +2015,6 @@ ld-select {
   font-size: var(--font-size-text);
   line-height: 2;
   color: #fff;
-
   font-weight: var(--font-weight-text);
 }
 
@@ -4551,6 +4550,10 @@ ld-select {
   // display: flex;
 
   // justify-content: space-between;
+}
+
+.page_diy_list .page-list .classification-list .scroll-view {
+  text-align: center;
 }
 
 .page_diy_list .page-list .classification-list .scroll-view {
